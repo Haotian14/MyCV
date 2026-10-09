@@ -1,5 +1,5 @@
 // Render resume.html to A4 PDFs with Playwright's Chromium.
-//   resume.pdf           public copy: no phone, city or photo (committed)
+//   resume.pdf           public copy: no phone or photo (committed)
 //   dist/resume-full.pdf full copy filled from private/ (git-ignored)
 const fs = require('fs');
 const path = require('path');

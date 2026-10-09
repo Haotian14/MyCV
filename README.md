@@ -5,7 +5,7 @@
 | 文件 | 说明 |
 | --- | --- |
 | [`resume.html`](resume.html) | 简历源文件，也是网页版：浏览器打开即可，打印时自动切换为 A4 两页排版，支持深色模式与手机屏幕 |
-| [`resume.pdf`](resume.pdf) | 公开版 A4 PDF，不含电话、城市与照片 |
+| [`resume.pdf`](resume.pdf) | 公开版 A4 PDF，不含电话与照片 |
 
 ## 生成 PDF
 
@@ -15,10 +15,10 @@
 node build/pdf.js
 ```
 
-电话、城市和照片放在 `private/` 中（已被 git 忽略），不会提交到这个公开仓库：
+电话和照片放在 `private/` 中（已被 git 忽略），不会提交到这个公开仓库：
 
 ```
-private/profile.json   { "city": "...", "phone": "..." }
+private/profile.json   { "phone": "..." }
 private/photo.jpg      或 photo.png
 ```
 
