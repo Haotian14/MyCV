@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>骆皓天 简历</title>
+<style>
+:root{--ink:#1d1d1f;--muted:#5a5a63;--accent:#2f5d8a;--line:#d9dde3;--bg:#fff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#e8e8ea;--muted:#a3a3ad;--accent:#8db7e3;--line:#3a3d44;--bg:#16171a}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.6 "PingFang SC","Noto Sans SC","Microsoft YaHei",system-ui,sans-serif}
+main{max-width:820px;margin:0 auto;padding:32px 16px}
+h1{font-size:28px;margin:0 0 4px}
+h2{font-size:16px;color:var(--accent);border-bottom:1.5px solid var(--accent);padding-bottom:3px;margin:22px 0 10px;letter-spacing:.05em}
+h3{font-size:14.5px;margin:12px 0 4px}
+p{margin:4px 0}
+ul{margin:4px 0 8px;padding-left:20px}
+li{margin:2px 0}
+a{color:var(--accent);text-decoration:none}
+hr{display:none}
+strong{font-weight:650}
+code{font-family:ui-monospace,Menlo,monospace;font-size:12.5px}
+@media print{
+  @page{size:A4;margin:12mm 13mm}
+  :root{--ink:#000;--muted:#444;--accent:#1f4e79;--bg:#fff}
+  body{font-size:10.5pt;line-height:1.45}
+  main{padding:0;max-width:none}
+  h1{font-size:20pt} h2{font-size:12pt;margin:12px 0 6px} h3{font-size:10.8pt;margin:8px 0 2px}
+  h2,h3{break-after:avoid} li{break-inside:avoid}
+}
+</style>
+</head>
+<body><main>
+<h1 id="骆皓天hart-luo">骆皓天（Hart Luo）</h1>
+<p><strong>前端开发工程师</strong> · React / Vue 3 / TypeScript · AIGC
+产品 · 无限画布</p>
+<p>📧 <a
+href="mailto:luohaotian0616@gmail.com">luohaotian0616@gmail.com</a> ·
+GitHub: <a href="https://github.com/Haotian14">Haotian14</a> · 作品集:
+<a
+href="https://haotian14.github.io/Portfolio/">haotian14.github.io/Portfolio</a>
+· LinkedIn: <a
+href="https://www.linkedin.com/in/hart-luo-919866392">hart-luo-919866392</a></p>
+<hr />
+<h2 id="个人简介">个人简介</h2>
+<p>UNSW 计算机科学本科 +
+信息技术硕士，现于同花顺担任前端开发工程师，负责海外 AIGC 产品 DreamFace
+的 Web
+端与管理后台。擅长复杂交互与状态建模（无限画布、文档协议、增量保存与撤销），重视可验证的工程质量（测试、性能基准、根因排查）。日常以
+Claude Code + Codex 双 Agent 按任务类型分工协作，并行
+review，稳定高产出（2026 年 8 月 96 个非合并提交）。</p>
+<hr />
+<h2 id="工作经历">工作经历</h2>
+<h3
+id="同花顺--前端开发工程师--dreamface海外-aigc-头像--视频--图片生成产品----202604--至今">同花顺
+· 前端开发工程师 ｜ DreamFace（海外 AIGC 头像 / 视频 / 图片生成产品）   
+2026.04 – 至今</h3>
+<p>技术栈：Vue 3 · TypeScript · Woven Canvas · 管理后台 · 埋点体系 ·
+Sonar</p>
+<p><strong>无限画布（AIGC-3469）—
+从可行性验证到上线的核心开发者</strong></p>
+<ul>
+<li>立项前用 1 晚完成 <code>@woven-canvas/vue</code> 可行性 Demo，26
+项验证得出“可用但有限制”的结论，支撑立项决策；随后从零搭建
+<code>/canvas</code> 路由、画布工作区与可拖拽宽度的 Agent
+对话面板。</li>
+<li>设计并落地画布协议层：<code>CanvasDocument</code> 数据模型、增量
+Command 更新协议、本地 History（Undo/Redo）方案及后端联调文档，共 4
+份设计文档；将保存链路从 localStorage 切换为真正落库。</li>
+<li>实现 <code>CanvasSaveQueue</code>
+增量保存：防抖合并、请求幂等（重试复用 requestId）、revision
+冲突重试、按权重切批以解决 300
+节点批量操作超出后端单请求上限的问题。</li>
+<li>定位并修复渲染引擎与业务文档之间的投影层异步问题：幽灵节点、选中态回弹、删除节点导致
+tick 循环崩溃、断网冻结、300 资产无法渲染、跨机器缩放比异常（82% →
+100%，根因为过期 localStorage）等。</li>
+<li>完成缩放档位 / 键盘缩放 /
+视口中心锚点、吸附、框选、等比缩放、镜像、拖拽上传、Safari
+光标兼容等交互；产出代码讲解文档在团队内做技术分享。</li>
+</ul>
+<p><strong>运营位与增长需求</strong></p>
+<ul>
+<li>顶部通栏 Banner（AIGC-3332）：PC 端组件 +
+管理后台配置，从接口分流、组件、埋点到提测一条龙，并推广至全部 PC
+业务页。</li>
+<li>首页活动弹窗（AIGC-3406）：图片 / 视频混合轮播弹窗 +
+管理后台活动管理模块，从 mock 到联调上线。</li>
+<li>DreamVideo 3.0 / DreamAct 模型参数与默认值透传、avatar
+额度按语种加权计算等业务需求。</li>
+</ul>
+<p><strong>数据埋点与质量</strong></p>
+<ul>
+<li>负责首页、画布、每日趋势、Persona、作品详情页等模块的曝光 /
+点击埋点；逐条对照代码给出埋点可行性分析，识别“触发时机在代码中不存在”“埋点
+ID 撞名”等需求缺陷并推动产品确认口径。</li>
+<li>新旧埋点并行上报以保证改版前后数据可比；完成 AllTools 无障碍与 Sonar
+告警整改。</li>
+<li>疑难问题排查：PC 首帧闪 H5、Shift+Enter
+换行失效、发布链路中线上引导弹窗未下线、npm 依赖与 dev server
+启动死锁等。</li>
+</ul>
+<hr />
+<h2 id="项目经历个人开源">项目经历（个人开源）</h2>
+<p><strong>infinite-canvas-core — 无头无限画布引擎</strong> · TypeScript
+· Canvas2D · Vitest · Playwright · <a
+href="https://github.com/Haotian14/infinite-canvas-core">GitHub</a></p>
+<ul>
+<li>相机、空间索引、视口裁剪与手势分层，核心不依赖 DOM，可在 Worker /
+Node 中运行，便于无头布局与服务端缩略图。</li>
+<li>10 万节点下视口查询 48 µs（全量扫描 604
+µs，<strong>13×</strong>）；全屏最坏场景通过绘制批处理 + 亚像素 LOD 从
+44 ms 降至 13.8 ms（<strong>3.2×</strong>），基准可一键复现。</li>
+</ul>
+<p><strong>德州扑克训练器 Texas Hold'em Trainer</strong> · React ·
+TypeScript · PWA · Playwright · <a
+href="https://texas-hold.luohaotian0616.workers.dev/">在线体验</a></p>
+<ul>
+<li>完整 6-max 无限注引擎（边池 / 全下 / 筹码守恒）、6 种 AI 性格 + GTO
+模式，基于范围感知 EV 决策；逐决策点复盘与 15 类长期漏洞报表。</li>
+<li><strong>985 个自动化测试</strong>；牌型评估与参考实现对拍 10 万组；1
+万手随机自对弈验证不变量；离线优先 PWA + IndexedDB。</li>
+</ul>
+<p><strong>Nimbus Scheduler — 轻量级分布式任务调度系统</strong> ·
+Node.js · WebSocket · Vue 3 · Docker · <a
+href="https://haotian14.github.io/mini-scheduler/">在线演示</a></p>
+<ul>
+<li>Master 资源感知调度（预占、老化屏障、重试、掉线回收），Worker
+执行并回传日志，Dashboard 通过 WebSocket 实时展示集群状态。</li>
+<li>调度策略为纯函数便于单测；在线演示直接在浏览器中运行真实调度模块而非录像。</li>
+</ul>
+<p><strong>RepoQuest — 把 GitHub 仓库变成可探索的像素世界</strong> ·
+React · TypeScript · Vite · Vitest · <a
+href="https://haotian14.github.io/RepoQuest/">在线体验</a></p>
+<ul>
+<li>由文件树确定性生成 2D 地图，支持源码预览、提交任务化、Issue/PR “Boss
+战”、PNG 导出；纯前端、无后端存储。</li>
+</ul>
+<p><strong>sts2-mcp — 《杀戮尖塔 2》自动游玩 Agent</strong> · Python ·
+C# · C++（CoreCLR Profiler）· <a
+href="https://github.com/Haotian14/sts2-mcp">GitHub</a></p>
+<ul>
+<li>不修改游戏文件，通过 CoreCLR Profiler IL 注入加载 HTTP
+桥接层；战斗采用回合内束搜索，构筑基于约 190 万局社区统计数据估值。</li>
+</ul>
+<p><strong>前端 / 算法面试手册</strong> · React · MDX · Vite — 50
+个前端专题（全文检索、学习依赖图、全站预渲染）；17 章 201 道 ML/LLM
+高频题与可运行实现。</p>
+<hr />
+<h2 id="教育背景">教育背景</h2>
+<p><strong>新南威尔士大学（UNSW Sydney）</strong> · 信息技术硕士（Master
+of IT）    2024 – 2025<br />
+机器学习与数据挖掘、推荐系统、图分析、大数据管理、信息检索；安全工程；人机交互；团队毕业设计（Capstone）。</p>
+<p><strong>新南威尔士大学（UNSW Sydney）</strong> ·
+计算机科学学士（B.Sc. Computer Science）    2021 – 2024<br />
+数据结构与算法、操作系统与网络、数据库系统、软件工程、人工智能 /
+深度学习 / 计算机视觉、Web 前端；团队毕业设计从立项到交付。</p>
+<hr />
+<h2 id="专业技能">专业技能</h2>
+<ul>
+<li><strong>前端</strong>：React、Vue
+3、TypeScript、JavaScript、Vite、Umi、Ant Design、ECharts、MDX、PWA /
+Service Worker、IndexedDB、Canvas2D</li>
+<li><strong>工程化</strong>：Vitest、Playwright、GitHub
+Actions、Docker、Sonar、性能基准与 Profiling、无障碍（a11y）</li>
+<li><strong>后端 / 其他</strong>：Node.js、WebSocket、Spring
+Boot、Python</li>
+<li><strong>AI 工程</strong>：Claude Code + Codex 多 Agent
+协作开发（subagent 并行 review、Figma MCP 对稿、Midscene.js UI
+自动化调研）；LLM / 推荐系统基础</li>
+<li><strong>语言</strong>：中文（母语）、英语（澳洲 UNSW
+本硕全英文授课）</li>
+</ul>
+</main></body>
+</html>

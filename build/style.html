@@ -1,0 +1,25 @@
+<style>
+:root{--ink:#1d1d1f;--muted:#5a5a63;--accent:#2f5d8a;--line:#d9dde3;--bg:#fff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#e8e8ea;--muted:#a3a3ad;--accent:#8db7e3;--line:#3a3d44;--bg:#16171a}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.6 "PingFang SC","Noto Sans SC","Microsoft YaHei",system-ui,sans-serif}
+main{max-width:820px;margin:0 auto;padding:32px 16px}
+h1{font-size:28px;margin:0 0 4px}
+h2{font-size:16px;color:var(--accent);border-bottom:1.5px solid var(--accent);padding-bottom:3px;margin:22px 0 10px;letter-spacing:.05em}
+h3{font-size:14.5px;margin:12px 0 4px}
+p{margin:4px 0}
+ul{margin:4px 0 8px;padding-left:20px}
+li{margin:2px 0}
+a{color:var(--accent);text-decoration:none}
+hr{display:none}
+strong{font-weight:650}
+code{font-family:ui-monospace,Menlo,monospace;font-size:12.5px}
+@media print{
+  @page{size:A4;margin:12mm 13mm}
+  :root{--ink:#000;--muted:#444;--accent:#1f4e79;--bg:#fff}
+  body{font-size:10.5pt;line-height:1.45}
+  main{padding:0;max-width:none}
+  h1{font-size:20pt} h2{font-size:12pt;margin:12px 0 6px} h3{font-size:10.8pt;margin:8px 0 2px}
+  h2,h3{break-after:avoid} li{break-inside:avoid}
+}
+</style>
