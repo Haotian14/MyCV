@@ -4,14 +4,22 @@
 
 | 文件 | 说明 |
 | --- | --- |
-| [`resume.md`](resume.md) | 简历源文件（唯一需要手动编辑的文件） |
-| [`resume.html`](resume.html) | 网页版，浏览器打开即可，打印时自动切换为 A4 排版 |
-| [`resume.pdf`](resume.pdf) | A4 PDF，两页 |
+| [`resume.html`](resume.html) | 简历源文件，也是网页版：浏览器打开即可，打印时自动切换为 A4 两页排版，支持深色模式与手机屏幕 |
+| [`resume.pdf`](resume.pdf) | 公开版 A4 PDF，不含电话、城市与照片 |
 
-## 重新生成
+## 生成 PDF
 
-需要 `pandoc`、Node.js 和 `playwright`：
+需要 Node.js 和 `playwright`，并安装 Noto Sans SC 字体：
 
 ```bash
-./build/build.sh
+node build/pdf.js
 ```
+
+电话、城市和照片放在 `private/` 中（已被 git 忽略），不会提交到这个公开仓库：
+
+```
+private/profile.json   { "city": "...", "phone": "..." }
+private/photo.jpg      或 photo.png
+```
+
+存在 `private/` 时会额外生成完整版 `dist/resume-full.pdf`（同样被忽略），用于投递。
