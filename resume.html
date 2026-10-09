@@ -51,6 +51,7 @@ body {
 a { color: inherit; text-decoration: none; }
 b, strong { color: var(--ink); font-weight: 600; }
 .m { color: var(--accent); font-weight: 600; }
+code { font: .92em var(--font-mono); }
 
 .page {
   background: var(--bg);
@@ -78,8 +79,9 @@ h1 {
   font-size: 40px; line-height: 1.05; letter-spacing: .02em; color: var(--ink);
 }
 h1 em { font-style: italic; font-weight: 400; font-size: 26px; color: var(--muted); margin-left: 12px; letter-spacing: 0; }
-.tagline { margin: 10px 0 14px; font-family: var(--font-display); font-size: 16px; color: var(--ink-soft); }
+.tagline { margin: 10px 0 14px; font-family: "Noto Serif SC", var(--font-display); font-size: 16px; color: var(--ink-soft); }
 .tagline i { color: var(--accent); font-style: italic; }
+.tagline .sep { color: var(--muted); margin: 0 8px; }
 .contacts { display: flex; flex-wrap: wrap; gap: 3px 18px; margin: 0; padding: 0; list-style: none; font: 11.5px var(--font-mono); color: var(--ink-soft); }
 .contacts li { display: inline-flex; align-items: center; gap: 6px; }
 .contacts li::before { content: attr(data-k); color: var(--muted); }
@@ -118,6 +120,8 @@ h3 .link { margin-left: auto; font: 10.5px var(--font-mono); color: var(--muted)
 .sub { margin: 2px 0 0; color: var(--muted); font-size: 12.5px; }
 .stack { margin: 3px 0 0; font: 10.5px var(--font-mono); color: var(--accent); letter-spacing: .02em; }
 .stack span + span::before { content: " / "; color: var(--muted); }
+.more { margin: 0; }
+.more a { color: var(--accent); }
 .group { margin: 9px 0 1px; font-family: var(--font-display); font-weight: 600; font-size: 14px; color: var(--ink); }
 .group small { font: 10.5px var(--font-mono); color: var(--accent); margin-left: 8px; letter-spacing: .04em; font-weight: 400; }
 
@@ -159,7 +163,7 @@ footer { margin-top: 22px; padding-top: 12px; border-top: 1px solid var(--line);
 @media print {
   @page { size: A4; margin: 12mm 14mm 10mm; background: #f4f2eb; }
   :root {
-    --bg: #f4f2eb; --desk: #f4f2eb; --ink: #191917; --ink-soft: #3b3a34; --muted: #77756c;
+    --bg: #f4f2eb; --desk: #f4f2eb; --ink: #191917; --ink-soft: #33322d; --muted: #66645c;
     --line: rgba(25, 25, 23, 0.16); --line-soft: rgba(25, 25, 23, 0.08);
     --accent: #a8492a; --accent-bright: #cc785c;
   }
@@ -191,7 +195,7 @@ footer { margin-top: 22px; padding-top: 12px; border-top: 1px solid var(--line);
     <div class="who">
       <p class="eyebrow">Frontend Engineer · Résumé 2026</p>
       <h1>骆皓天<em>Hart Luo</em></h1>
-      <p class="tagline">前端开发工程师 —— 把复杂的交互，做成<i>清晰可靠</i>的产品体验。</p>
+      <p class="tagline">前端开发工程师 · UNSW 本硕 · 方向：<i>Canvas 图形交互与复杂状态管理</i></p>
       <ul class="contacts">
         <li data-k="TEL" data-private="phone"><span></span></li>
         <li data-k="MAIL"><a href="mailto:luohaotian0616@gmail.com">luohaotian0616@gmail.com</a></li>
@@ -206,9 +210,9 @@ footer { margin-top: 22px; padding-top: 12px; border-top: 1px solid var(--line);
     <h2><span class="num">00 · About</span><span>个人优势<span class="en">Highlights</span></span></h2>
     <div class="highlights">
       <ol>
-        <li>现任同花顺前端开发工程师，<b>无限画布核心开发</b>，参与技术选型验证、协议设计到上线迭代全过程，画布上线后日活 <span class="m">3000+</span>；擅长复杂交互与前端状态建模（文档模型、增量保存、撤销重做）。</li>
-        <li>以测试和性能数据保证质量：业余开源画布引擎 infinite-canvas-core 10 万节点视口查询提速 <span class="m">13×</span>，德州扑克训练器 <span class="m">985</span> 个自动化测试 + 端到端回归。</li>
-        <li>UNSW 计算机本科 + 信息技术硕士，<b>5 年海外学习与工作经历</b>，英语可作为工作语言；能独立完成需求拆解、方案设计、联调到上线的完整交付。</li>
+        <li>同花顺前端开发工程师，<b>AIGC 无限画布核心开发</b>：从 0 到上线（日活 <span class="m">3000+</span>），负责文档协议、增量保存链路与渲染层状态一致性。</li>
+        <li>业余开源画布引擎 infinite-canvas-core，以基准测试驱动优化：10 万节点视口查询 <span class="m">48 µs</span>，最坏帧 44 → <span class="m">13.8 ms</span>。</li>
+        <li>UNSW 计算机本科 + 信息技术硕士（GPA 6.03 / 6.12，满分 7），近 5 年澳洲学习与实习经历，英语可作为工作语言。</li>
       </ol>
     </div>
   </section>
@@ -225,17 +229,16 @@ footer { margin-top: 22px; padding-top: 12px; border-top: 1px solid var(--line);
 
         <p class="group">无限画布 · AIGC 创作工作台<small>核心开发 · 从 0 到上线 · 日活 3000+</small></p>
         <ul>
-          <li class="b">负责画布引擎技术选型验证，覆盖 <span class="m">26</span> 项能力点并输出风险评估，推动立项；从零搭建画布路由、工作区与可拖拽宽度的 Agent 对话面板。</li>
+          <li class="b">立项前对候选画布引擎（Woven Canvas）完成 <span class="m">26</span> 项可行性验证，明确能力边界与风险，作为立项依据；随后从零搭建画布路由、工作区与可拖拽宽度的 Agent 对话面板。</li>
           <li class="b">设计画布协议层：<b>CanvasDocument</b> 数据模型、增量 Command 更新协议、本地 History（Undo / Redo）方案与后端联调文档共 <span class="m">4</span> 份，将保存链路从 localStorage 切换为真正落库。</li>
-          <li class="b">实现增量保存队列：防抖合并、重试复用 requestId 保证幂等、revision 冲突重试，并按权重切批解决 <span class="m">300</span> 节点批量操作超出后端单请求上限的问题。</li>
-          <li class="b">解决渲染引擎与业务数据之间的状态同步问题：幽灵节点、选中态回弹、删除节点后渲染循环崩溃、断网后页面冻结、300 资产无法渲染等，保障画布在高频操作与弱网下稳定。</li>
-          <li class="b">完成缩放档位 / 视口锚点、吸附、框选、等比缩放、镜像、拖拽上传与 Safari 兼容等交互；编写画布架构讲解文档并在团队内做技术分享。</li>
+          <li class="b">实现增量保存队列：防抖合并连续操作、重试复用 requestId 保证幂等、revision 冲突自动重试，并按权重切批，解决 <span class="m">300</span> 节点批量操作超出后端单请求上限导致保存失败的问题。</li>
+          <li class="b">定位并修复渲染引擎与业务文档之间的 <span class="m">5</span> 类状态不一致根因（幽灵节点、选中态回弹、删除后渲染循环崩溃、断网冻结、大量资产渲染失败）并补充回归测试，保障画布在高频操作与弱网下稳定。</li>
+          <li class="b">实现缩放档位与视口锚点、吸附、框选、等比缩放、镜像、拖拽上传与 Safari 兼容等交互；编写画布架构讲解文档并在团队内做技术分享。</li>
         </ul>
 
         <p class="group">运营位与数据埋点</p>
         <ul>
-          <li class="b"><b>顶部通栏 Banner</b>：PC 端组件 + 管理后台配置，从接口分流、组件、埋点到提测一条链路完成，并推广至全部 PC 业务页；<b>首页活动弹窗</b>：图片 / 视频混合轮播 + 后台活动管理模块，从 mock 到联调上线。</li>
-          <li class="b">负责首页、画布、每日趋势等核心模块的曝光 / 点击埋点；对照代码逐条评估埋点可行性，提前识别触发时机缺失、埋点 ID 冲突等需求缺陷并推动产品统一口径；推动 Sonar 与无障碍告警整改。</li>
+          <li class="b">负责顶部通栏 Banner（推广至全部 PC 业务页）与首页图片 / 视频轮播活动弹窗的前台 + 管理后台全链路；负责首页、画布等核心模块埋点，提前识别触发时机缺失、ID 冲突等需求缺陷并推动统一口径。</li>
         </ul>
       </div>
     </article>
@@ -248,11 +251,10 @@ footer { margin-top: 22px; padding-top: 12px; border-top: 1px solid var(--line);
       <div class="when"><b>2025.06</b>2025.11</div>
       <div class="what">
         <h3>DVINE Experiences<span class="pos">软件 / IT 实习生 · 澳洲旅游服务公司</span></h3>
-        <p class="sub">Web 自动化预约与运营管理系统</p>
+        <p class="sub">基于 GoHighLevel 低代码平台搭建预约与运营自动化系统</p>
         <p class="stack"><span>GoHighLevel</span><span>Forms</span><span>Workflows</span></p>
         <ul>
-          <li class="b">基于 GHL Forms / Custom Fields 设计配置驱动的预约表单与用户页面，按产品与场景切换字段和校验逻辑，交付 <span class="m">10+</span> 表单 / 功能模块。</li>
-          <li class="b">搭建 Trigger → Action 自动化链路，覆盖预约创建、确认通知、状态更新与提醒，核心流程全链路跑通；精简表单结构，减少客户填写步骤与人工跟进。</li>
+          <li class="b">基于 GHL Forms / Custom Fields 与 Workflows 搭建配置驱动的预约表单和 Trigger → Action 自动化链路，覆盖预约创建、确认通知、状态更新与提醒，交付 <span class="m">10+</span> 表单 / 功能模块。</li>
         </ul>
       </div>
     </article>
@@ -260,12 +262,11 @@ footer { margin-top: 22px; padding-top: 12px; border-top: 1px solid var(--line);
     <article class="entry">
       <div class="when"><b>2024.06</b>2024.09</div>
       <div class="what">
-        <h3>博彦科技<span class="pos">前端开发实习生 · 驻场阿里巴巴项目</span></h3>
-        <p class="sub">茶百道供应链管理系统 · 企业级 SaaS</p>
+        <h3>博彦科技<span class="pos">前端开发实习生 · 驻场阿里巴巴项目组</span></h3>
+        <p class="sub">为茶百道交付的供应链管理后台（企业级 SaaS），负责运输管理与订单可视化模块</p>
         <p class="stack"><span>React</span><span>Umi</span><span>Ant Design Pro</span><span>ECharts</span></p>
         <ul>
-          <li class="b">参与供应链后台建设，负责运输管理与订单可视化模块，交付 <span class="m">10+</span> 业务功能页面。</li>
-          <li class="b">基于 Umi + React + TypeScript + Ant Design Pro 开发，封装 <span class="m">10+</span> 可复用业务组件；用 ECharts 实现 <span class="m">20+</span> 数据可视化报表。</li>
+          <li class="b">基于 Umi + React + TypeScript + Ant Design Pro 交付运输管理、订单可视化等 <span class="m">10+</span> 业务页面，封装 <span class="m">10+</span> 可复用业务组件，用 ECharts 实现 <span class="m">20+</span> 数据报表；从需求拆解到联调上线全流程跟进。</li>
         </ul>
       </div>
     </article>
@@ -275,35 +276,38 @@ footer { margin-top: 22px; padding-top: 12px; border-top: 1px solid var(--line);
     <h2><span class="num">03 · Build</span><span>项目经历<span class="en">Projects</span></span></h2>
 
     <article class="entry">
-      <div class="when"><b>开源</b>个人项目</div>
+      <div class="when"><b>2026.09</b>个人开源</div>
       <div class="what">
         <h3>infinite-canvas-core<span class="pos">无头无限画布引擎</span><a class="link" href="https://github.com/Haotian14/infinite-canvas-core">github ↗</a></h3>
-        <p class="sub">相机 / 空间索引 / 视口裁剪 / 手势分层，核心不依赖 DOM，可在 Worker 与 Node 中运行</p>
+        <p class="sub">业余时间将画布通用能力抽象为独立开源引擎（不含公司代码）</p>
         <p class="stack"><span>TypeScript</span><span>Canvas2D</span><span>Vitest</span><span>Playwright</span></p>
         <ul>
-          <li class="b">10 万节点下视口查询 <span class="m">48 µs</span>，较全量扫描快 <span class="m">13×</span>；全屏最坏场景经绘制批处理与亚像素 LOD 从 44 ms 降至 <span class="m">13.8 ms</span>（3.2×），基准可一键复现。</li>
+          <li class="b"><b>空间索引</b>：基于均匀网格（cell 坐标精确打包为单个 float64，超大元素单独存放），10 万节点视口查询 <span class="m">48 µs</span>（线性扫描 604 µs，<span class="m">13×</span>）。</li>
+          <li class="b"><b>渲染</b>：绘制批处理 + 亚像素 LOD 像素缓冲，10 万节点全屏最坏帧从 44 ms 降至 <span class="m">13.8 ms</span>；通过基准定位 <code>#private</code> 字段被打包降级导致的 <span class="m">3.3×</span> 帧耗时回归并加测试守护。</li>
+          <li class="b"><b>架构</b>：仅缩放平移的相机、几何命中测试、补丁式撤销历史与吸附，核心零 DOM 依赖，可在 Worker / Node 中运行；<span class="m">160+</span> 单元测试，基准可一键复现。</li>
         </ul>
       </div>
     </article>
 
     <article class="entry">
-      <div class="when"><b>开源</b>个人项目</div>
+      <div class="when"><b>2026.08</b>个人开源</div>
       <div class="what">
-        <h3>德州扑克训练器<span class="pos">离线优先 PWA</span><a class="link" href="https://texas-hold.luohaotian0616.workers.dev/">live ↗</a></h3>
-        <p class="sub">打牌 → 保存手牌 → EV 评估 → 标记失误 → 单手复盘 → 长期漏洞统计的完整训练闭环</p>
+        <h3>牌局决策复盘训练器<span class="pos">离线优先 PWA</span><a class="link" href="https://texas-hold.luohaotian0616.workers.dev/">live ↗</a></h3>
+        <p class="sub">对局 → 记录 → EV 评估 → 标记失误 → 复盘 → 长期统计的完整训练闭环</p>
         <p class="stack"><span>React</span><span>TypeScript</span><span>IndexedDB</span><span>Playwright</span></p>
         <ul>
-          <li class="b">完整 6-max 无限注引擎（边池、全下、筹码守恒），6 种 AI 性格 + GTO 模式基于范围感知 EV 决策；逐决策点复盘与 15 类漏洞报表。</li>
-          <li class="b"><span class="m">985</span> 个自动化测试；牌型评估与参考实现对拍 10 万组，1 万手随机自对弈验证不变量；Service Worker 离线运行。</li>
+          <li class="b">规则引擎 + 6 种 AI 策略 + 逐决策点 EV 复盘与 15 类失误统计；状态与 UI 分层，所有随机性来自 seed，可完整重放任一局。</li>
+          <li class="b"><span class="m">985</span> 个自动化测试：核心算法与参考实现对拍 10 万组、1 万局随机自对弈验证不变量，Playwright 覆盖桌面与移动端主链路；IndexedDB + Service Worker 离线运行。</li>
         </ul>
       </div>
     </article>
 
     <article class="entry">
-      <div class="when"><b>学生创业</b>前端负责人</div>
+      <div class="when"><b>在校期间</b>学生创业</div>
       <div class="what">
-        <h3>UNSW HandbookX<span class="pos">课程查询与规划平台</span><a class="link" href="https://github.com/fairymavisv/UNSW-HandBookX">github ↗</a></h3>
+        <h3>UNSW HandbookX<span class="pos">前端负责人 · 课程查询与规划平台</span><a class="link" href="https://github.com/fairymavisv/UNSW-HandBookX">github ↗</a></h3>
         <p class="sub">针对官方选课系统体验差的问题，校内测试阶段获得 100+ 学生用户</p>
+        <p class="stack"><span>Vue 3</span><span>TypeScript</span><span>NestJS</span></p>
         <ul>
           <li class="b">制定统一开发规范与组件风格指南，主导每周 Code Review，封装公共组件与工具函数，降低团队重复开发。</li>
         </ul>
@@ -313,12 +317,7 @@ footer { margin-top: 22px; padding-top: 12px; border-top: 1px solid var(--line);
     <article class="entry">
       <div class="when"><b>更多</b>作品</div>
       <div class="what">
-        <ul>
-          <li class="b"><b>Nimbus Scheduler</b>：轻量级分布式任务调度系统，资源感知调度、预占与掉线回收，WebSocket 实时 Dashboard（Node.js / Vue 3）。</li>
-          <li class="b"><b>RepoQuest</b>：把任意 GitHub 仓库变成可探索的像素地图，支持源码预览与 PNG 导出，纯前端无后端。</li>
-          <li class="b"><b>sts2-mcp</b>：《杀戮尖塔 2》自动游玩 Agent，CoreCLR Profiler 桥接层 + 回合内束搜索决策。</li>
-          <li class="b"><b>前端 / 算法复习手册</b>：50 个前端专题与 201 道 ML / LLM 题目的知识站点，全站预渲染。</li>
-        </ul>
+        <p class="more">分布式任务调度系统 Nimbus Scheduler（Node.js / WebSocket / Vue 3）、GitHub 仓库像素地图 RepoQuest（React / TypeScript）等，详见 <a href="https://haotian14.github.io/Portfolio/">haotian14.github.io/Portfolio</a>。</p>
       </div>
     </article>
   </section>
@@ -338,11 +337,11 @@ footer { margin-top: 22px; padding-top: 12px; border-top: 1px solid var(--line);
   <section>
     <h2><span class="num">05 · Craft</span><span>专业技能<span class="en">Skills</span></span></h2>
     <dl class="skills">
-      <dt>FRONTEND</dt><dd>熟练 JavaScript / TypeScript、<b>React</b>、<b>Vue 3</b>，理解事件循环、浏览器渲染流程与性能优化；熟悉 Next.js、Umi、Vite、Ant Design、TailwindCSS、Zustand、Sass、ECharts、PWA / IndexedDB</dd>
+      <dt>FRONTEND</dt><dd>熟练 <b>Vue 3</b>、<b>TypeScript</b>、JavaScript；熟悉 <b>React</b>、Umi、Vite、Ant Design、TailwindCSS、Zustand、Sass、ECharts、PWA / IndexedDB</dd>
       <dt>GRAPHICS</dt><dd>Canvas2D 与复杂交互：坐标变换、空间索引、视口裁剪、增量渲染；文档模型、增量保存与撤销重做设计</dd>
-      <dt>ENGINEERING</dt><dd>Vitest / Playwright 测试、GitHub Actions、Docker、Sonar；性能基准与 Profiling、无障碍（a11y）、埋点体系设计；日常使用 Claude Code / Codex 辅助开发与代码评审</dd>
-      <dt>OTHER</dt><dd>Node.js、WebSocket、RESTful API 设计；Python、数据结构与算法</dd>
-      <dt>LANGUAGE</dt><dd>中文（母语）、英语（5 年澳洲本硕全英文学习与实习，可作为工作语言）</dd>
+      <dt>ENGINEERING</dt><dd>Vitest / Playwright 测试与回归、GitHub Actions CI、Sonar；性能基准与 Profiling、埋点体系设计；日常使用 Claude Code / Codex 辅助开发与代码评审</dd>
+      <dt>OTHER</dt><dd>Node.js、WebSocket、RESTful API 设计；数据结构与算法</dd>
+      <dt>LANGUAGE</dt><dd>中文（母语）、英语（工作语言）</dd>
     </dl>
   </section>
 
