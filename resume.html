@@ -145,9 +145,34 @@ li.b::before { content: "—"; position: absolute; left: 0; color: var(--accent-
 
 footer { margin-top: 22px; padding-top: 12px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; font: 10px var(--font-mono); color: var(--muted); letter-spacing: .08em; }
 
+/* ── Language ───────────────────────────────────────── */
+.page[data-lang="en"] { display: none; }
+:root[data-lang="en"] .page[data-lang="en"] { display: block; }
+:root[data-lang="en"] .page[data-lang="zh"] { display: none; }
+.page[data-lang="en"] h1 em { font-family: "Noto Serif SC", var(--font-display); font-style: normal; font-size: 22px; }
+.page[data-lang="en"] .tagline { font-family: var(--font-display); }
+.page[data-lang="en"] { line-height: 1.6; }
+
+.lang-switch {
+  position: fixed; top: 14px; right: 14px; z-index: 10;
+  display: flex; padding: 3px; gap: 2px;
+  background: var(--bg); border: 1px solid var(--line); border-radius: 999px;
+  box-shadow: 0 1px 2px rgba(25, 25, 23, .05);
+}
+.lang-switch button {
+  appearance: none; border: 0; background: transparent; cursor: pointer;
+  padding: 4px 12px; border-radius: 999px;
+  font: 500 11.5px var(--font-mono); letter-spacing: .06em; color: var(--muted);
+  transition: background .2s, color .2s;
+}
+.lang-switch button:hover { color: var(--ink); }
+.lang-switch button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+.lang-switch button:focus-visible { outline: 2px solid var(--accent-bright); outline-offset: 2px; }
+
 /* ── Narrow screens ─────────────────────────────────── */
 @media (max-width: 640px) {
-  .page { margin: 0; padding: 28px 16px; border: 0; border-radius: 0; }
+  .page { margin: 0; padding: 64px 16px 28px; border: 0; border-radius: 0; }
+  .lang-switch { top: 16px; right: 16px; }
   header { flex-direction: column-reverse; align-items: flex-start; gap: 18px; }
   h1 { font-size: 34px; }
   h1 em { display: block; margin: 6px 0 0; }
@@ -161,6 +186,9 @@ footer { margin-top: 22px; padding-top: 12px; border-top: 1px solid var(--line);
 
 /* ── Print: A4 on ivory paper ───────────────────────── */
 @media print {
+  .lang-switch { display: none; }
+  .page[data-lang="en"] { font-size: 8.9pt; line-height: 1.48; }
+  .page[data-lang="en"] .sub { font-size: 11.5px; }
   @page { size: A4; margin: 12mm 14mm 10mm; background: #f4f2eb; }
   :root {
     --bg: #f4f2eb; --desk: #f4f2eb; --ink: #191917; --ink-soft: #33322d; --muted: #66645c;
@@ -189,7 +217,11 @@ footer { margin-top: 22px; padding-top: 12px; border-top: 1px solid var(--line);
 </style>
 </head>
 <body>
-<main class="page">
+<div class="lang-switch" role="group" aria-label="Language / 语言">
+  <button type="button" data-set-lang="zh" lang="zh-CN">中文</button>
+  <button type="button" data-set-lang="en" lang="en">EN</button>
+</div>
+<main class="page" data-lang="zh" lang="zh-CN">
 
   <header>
     <div class="who">
@@ -347,12 +379,204 @@ footer { margin-top: 22px; padding-top: 12px; border-top: 1px solid var(--line);
 
   <footer><span>HART LUO · 骆皓天</span><span>UPDATED 2026.10</span></footer>
 </main>
+
+<main class="page" data-lang="en" lang="en">
+
+  <header>
+    <div class="who">
+      <p class="eyebrow">Frontend Engineer · Résumé 2026</p>
+      <h1>Hart Luo<em>骆皓天</em></h1>
+      <p class="tagline">Frontend Engineer · UNSW BSc &amp; MIT · Focus: <i>canvas interaction and complex front-end state</i></p>
+      <ul class="contacts">
+        <li data-k="TEL" data-private="phone"><span></span></li>
+        <li data-k="MAIL"><a href="mailto:luohaotian0616@gmail.com">luohaotian0616@gmail.com</a></li>
+        <li data-k="GITHUB"><a href="https://github.com/Haotian14">github.com/Haotian14</a></li>
+        <li data-k="WEB"><a href="https://haotian14.github.io/Portfolio/">haotian14.github.io/Portfolio</a></li>
+      </ul>
+    </div>
+    <img class="photo" data-private="photo" alt="Portrait of Hart Luo">
+  </header>
+
+  <section>
+    <h2><span class="num">00 · About</span><span>Highlights</span></h2>
+    <div class="highlights">
+      <ol>
+        <li>Frontend engineer on Hithink RoyalFlush's DreamFace, an overseas AIGC product with <span class="m">300k+</span> DAU; helped take its infinite canvas from zero to launch, owning the document protocol, save pipeline and render-state consistency.</li>
+        <li>Author of the open-source canvas engine infinite-canvas-core, optimised against benchmarks: <span class="m">48 µs</span> viewport queries over 100,000 nodes, worst-case frame 44 → <span class="m">13.8 ms</span>.</li>
+        <li>BSc in Computer Science and Master of IT from UNSW (GPA 6.03 and 6.12 out of 7); nearly five years studying and interning in Australia; works fluently in English.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">01 · Work</span><span>Experience</span></h2>
+
+    <article class="entry">
+      <div class="when"><b>2026.04</b>Present</div>
+      <div class="what">
+        <h3>Hithink RoyalFlush<span class="pos">Frontend Engineer</span></h3>
+        <p class="sub">DreamFace team · overseas AIGC product, <b>300k+ DAU</b> on iOS, Android and web (talking avatars, image-to-video, motion transfer, voice cloning); I work on the web app, mobile web and admin console</p>
+        <p class="stack"><span>Vue 3</span><span>TypeScript</span><span>Canvas</span><span>Analytics</span></p>
+
+        <p class="group">Infinite canvas · AIGC creative workspace<small>core developer · zero to launch · 3,000+ DAU</small></p>
+        <ul>
+          <li class="b">Ran a <span class="m">26</span>-point feasibility study of the Woven Canvas engine that informed project approval; built the canvas route, workspace and resizable agent panel from scratch.</li>
+          <li class="b">Designed the protocol layer — <b>CanvasDocument</b> model, incremental command protocol, undo / redo history and backend spec (<span class="m">4</span> design docs) — and moved saving from localStorage to the server.</li>
+          <li class="b">Built the incremental save queue: debounced merging, idempotent retries reusing the request ID, revision-conflict retry, and weighted batching that fixed failed saves on <span class="m">300</span>-node bulk edits.</li>
+          <li class="b">Fixed <span class="m">5</span> root causes of state divergence between renderer and document (ghost nodes, selection snap-back, a render-loop crash on delete, offline freezes, bulk-asset render failures), with regression tests.</li>
+          <li class="b">Implemented zoom steps, viewport anchoring, snapping, marquee selection, resize, mirroring, drag-and-drop upload and Safari fixes; presented the canvas architecture to the team.</li>
+        </ul>
+
+        <p class="group">Promotions and analytics</p>
+        <ul>
+          <li class="b">Shipped the site-wide top banner and the image / video campaign pop-up end to end (front end and admin console); owned event tracking for core modules, catching missing triggers and conflicting IDs before release.</li>
+        </ul>
+      </div>
+    </article>
+  </section>
+
+  <section>
+    <h2><span class="num">02 · Intern</span><span>Internships</span></h2>
+
+    <article class="entry">
+      <div class="when"><b>2025.06</b>2025.11</div>
+      <div class="what">
+        <h3>DVINE Experiences<span class="pos">Software / IT Intern · Australian tourism company</span></h3>
+        <p class="sub">Booking and operations automation on the GoHighLevel low-code platform</p>
+        <p class="stack"><span>GoHighLevel</span><span>Forms</span><span>Workflows</span></p>
+        <ul>
+          <li class="b">Built configuration-driven booking forms on GHL Forms / Custom Fields and trigger → action workflows covering booking creation, confirmations, status updates and reminders; shipped <span class="m">10+</span> forms and modules.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="entry">
+      <div class="when"><b>2024.06</b>2024.09</div>
+      <div class="what">
+        <h3>Beyondsoft<span class="pos">Frontend Intern · on site with an Alibaba project team</span></h3>
+        <p class="sub">Supply-chain admin system (enterprise SaaS) delivered for ChaPanda; owned the transport management and order visualisation modules</p>
+        <p class="stack"><span>React</span><span>Umi</span><span>Ant Design Pro</span><span>ECharts</span></p>
+        <ul>
+          <li class="b">Shipped <span class="m">10+</span> pages with Umi, React, TypeScript and Ant Design Pro, <span class="m">10+</span> reusable components and <span class="m">20+</span> ECharts reports, from requirements through release.</li>
+        </ul>
+      </div>
+    </article>
+  </section>
+
+  <section>
+    <h2><span class="num">03 · Build</span><span>Projects</span></h2>
+
+    <article class="entry">
+      <div class="when"><b>2026.09</b>Open source</div>
+      <div class="what">
+        <h3>infinite-canvas-core<span class="pos">Headless infinite-canvas engine</span><a class="link" href="https://github.com/Haotian14/infinite-canvas-core">github ↗</a></h3>
+        <p class="sub">General canvas capabilities rebuilt in my own time as a standalone open-source engine (no company code)</p>
+        <p class="stack"><span>TypeScript</span><span>Canvas2D</span><span>Vitest</span><span>Playwright</span></p>
+        <ul>
+          <li class="b"><b>Spatial index</b>: a uniform grid with cell coordinates packed exactly into one float64 and oversized items kept apart — <span class="m">48 µs</span> viewport queries over 100,000 nodes (604 µs for a linear scan, <span class="m">13×</span>).</li>
+          <li class="b"><b>Rendering</b>: batching and a sub-pixel LOD buffer cut the worst 100k-node frame from 44 to <span class="m">13.8 ms</span>; benchmarks caught a <span class="m">3.3×</span> regression from downlevelled <code>#private</code> fields, now test-guarded.</li>
+          <li class="b"><b>Architecture</b>: scale-and-translate camera, geometric hit testing, patch-based undo and snapping; DOM-free core runs in a Worker or Node; <span class="m">160+</span> unit tests.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="entry">
+      <div class="when"><b>2026.08</b>Open source</div>
+      <div class="what">
+        <h3>Hand Review Trainer<span class="pos">Offline-first PWA</span><a class="link" href="https://texas-hold.luohaotian0616.workers.dev/">live ↗</a></h3>
+        <p class="sub">A full training loop: play → record → EV analysis → flag mistakes → review → long-term statistics</p>
+        <p class="stack"><span>React</span><span>TypeScript</span><span>IndexedDB</span><span>Playwright</span></p>
+        <ul>
+          <li class="b">Rules engine, 6 AI strategies, per-decision EV review and 15 mistake categories; state is separated from UI and all randomness comes from a seed, so any session replays exactly.</li>
+          <li class="b"><span class="m">985</span> automated tests: 100,000 cases cross-checked against a reference, invariants over 10,000 self-play sessions, Playwright on desktop and mobile; works offline.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="entry">
+      <div class="when"><b>At UNSW</b>Startup</div>
+      <div class="what">
+        <h3>UNSW HandbookX<span class="pos">Frontend lead · course search and planning</span><a class="link" href="https://github.com/fairymavisv/UNSW-HandBookX">github ↗</a></h3>
+        <p class="sub">Built because the official course handbook was slow to use; 100+ student users during campus testing</p>
+        <p class="stack"><span>Vue 3</span><span>TypeScript</span><span>NestJS</span></p>
+        <ul>
+          <li class="b">Set the team's coding conventions and component style guide, ran weekly code reviews, and built shared components and utilities to cut duplicated work.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="entry">
+      <div class="when"><b>More</b>Work</div>
+      <div class="what">
+        <p class="more">Nimbus Scheduler, a distributed task scheduler (Node.js / WebSocket / Vue 3); RepoQuest, a pixel-map explorer for GitHub repositories (React / TypeScript); and more at <a href="https://haotian14.github.io/Portfolio/">haotian14.github.io/Portfolio</a>.</p>
+      </div>
+    </article>
+  </section>
+
+  <section>
+    <h2><span class="num">04 · Study</span><span>Education</span></h2>
+    <article class="entry">
+      <div class="when"><b>2024.09</b>2026.01</div>
+      <div class="what"><h3>UNSW Sydney<span class="pos">Master of Information Technology · GPA 6.12 / 7.0 · QS 19</span></h3></div>
+    </article>
+    <article class="entry">
+      <div class="when"><b>2021.09</b>2024.06</div>
+      <div class="what"><h3>UNSW Sydney<span class="pos">Bachelor of Science (Computer Science) · GPA 6.03 / 7.0 · QS 19</span></h3></div>
+    </article>
+  </section>
+
+  <section>
+    <h2><span class="num">05 · Craft</span><span>Skills</span></h2>
+    <dl class="skills">
+      <dt>FRONTEND</dt><dd>Proficient in <b>Vue 3</b>, <b>TypeScript</b> and JavaScript; experienced with <b>React</b>, Umi, Vite, Ant Design, TailwindCSS, Zustand, Sass, ECharts, PWA / IndexedDB</dd>
+      <dt>GRAPHICS</dt><dd>Canvas2D and complex interaction: coordinate transforms, spatial indexing, viewport culling, incremental rendering; document models, incremental saving and undo / redo design</dd>
+      <dt>ENGINEERING</dt><dd>Vitest / Playwright testing and regression suites, GitHub Actions CI, Sonar; benchmarking and profiling, analytics design; Claude Code / Codex for day-to-day development and code review</dd>
+      <dt>OTHER</dt><dd>Node.js, WebSocket, RESTful API design; data structures and algorithms</dd>
+      <dt>LANGUAGE</dt><dd>Mandarin (native), English (professional working proficiency)</dd>
+    </dl>
+  </section>
+
+  <footer><span>HART LUO · 骆皓天</span><span>UPDATED 2026.10</span></footer>
+</main>
+
 <script>
   // Private fields (phone, photo) are filled in at build time from private/;
   // when absent they stay hidden so the public copy carries no personal contact data.
   document.querySelectorAll('.contacts li[data-private]').forEach(function (li) {
     if (!li.querySelector('span').textContent.trim()) li.classList.add('is-empty');
   });
+
+  // Language: ?lang= or #en / #zh wins, then the visitor's last choice, then the browser language.
+  (function () {
+    var TITLES = { zh: '骆皓天 简历', en: 'Hart Luo — Résumé' };
+    var root = document.documentElement;
+
+    function setLang(lang, remember) {
+      if (lang !== 'en') lang = 'zh';
+      root.dataset.lang = lang;
+      root.lang = lang === 'en' ? 'en' : 'zh-CN';
+      document.title = TITLES[lang];
+      document.querySelectorAll('[data-set-lang]').forEach(function (b) {
+        b.setAttribute('aria-pressed', String(b.dataset.setLang === lang));
+      });
+      if (remember) {
+        try { localStorage.setItem('resume-lang', lang); } catch (e) {}
+        history.replaceState(null, '', '#' + lang);
+      }
+    }
+    window.setResumeLang = setLang;
+
+    var fromUrl = new URLSearchParams(location.search).get('lang') || location.hash.slice(1);
+    var saved = null;
+    try { saved = localStorage.getItem('resume-lang'); } catch (e) {}
+    var initial = /^(zh|en)$/.test(fromUrl) ? fromUrl
+      : saved || (/^zh/i.test(navigator.language || '') ? 'zh' : 'en');
+    setLang(initial, false);
+
+    document.querySelectorAll('[data-set-lang]').forEach(function (b) {
+      b.addEventListener('click', function () { setLang(b.dataset.setLang, true); });
+    });
+  })();
 </script>
 </body>
 </html>

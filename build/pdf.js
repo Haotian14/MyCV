@@ -1,6 +1,6 @@
-// Render resume.html to A4 PDFs with Playwright's Chromium.
-//   resume.pdf           public copy: no phone or photo (committed)
-//   dist/resume-full.pdf full copy filled from private/ (git-ignored)
+// Render resume.html to A4 PDFs with Playwright's Chromium, once per language.
+//   resume.pdf, resume-en.pdf                    public copies: no phone or photo (committed)
+//   dist/resume-full.pdf, dist/resume-full-en.pdf full copies filled from private/ (git-ignored)
 const fs = require('fs');
 const path = require('path');
 const { chromium } = require('playwright');
@@ -20,9 +20,10 @@ function loadPrivate() {
   return profile;
 }
 
-async function render(browser, out, profile) {
+async function render(browser, out, lang, profile) {
   const page = await browser.newPage();
   await page.goto('file://' + path.join(root, 'resume.html'));
+  await page.evaluate((l) => window.setResumeLang(l, false), lang);
   if (profile) {
     await page.evaluate((p) => {
       document.querySelectorAll('.contacts li[data-private]').forEach((li) => {
@@ -32,7 +33,9 @@ async function render(browser, out, profile) {
           li.classList.remove('is-empty');
         }
       });
-      if (p.photo) document.querySelector('img[data-private="photo"]').src = p.photo;
+      if (p.photo) {
+        document.querySelectorAll('img[data-private="photo"]').forEach((img) => { img.src = p.photo; });
+      }
     }, profile);
   }
   await page.evaluate(() => document.fonts.ready);
@@ -45,11 +48,11 @@ async function render(browser, out, profile) {
   const browser = await chromium.launch(
     process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {},
   );
-  await render(browser, path.join(root, 'resume.pdf'), null);
   const profile = loadPrivate();
-  if (profile) {
-    fs.mkdirSync(path.join(root, 'dist'), { recursive: true });
-    await render(browser, path.join(root, 'dist', 'resume-full.pdf'), profile);
+  if (profile) fs.mkdirSync(path.join(root, 'dist'), { recursive: true });
+  for (const [lang, suffix] of [['zh', ''], ['en', '-en']]) {
+    await render(browser, path.join(root, `resume${suffix}.pdf`), lang, null);
+    if (profile) await render(browser, path.join(root, 'dist', `resume-full${suffix}.pdf`), lang, profile);
   }
   await browser.close();
 })();
