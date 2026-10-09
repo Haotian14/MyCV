@@ -6,142 +6,181 @@
 <title>骆皓天 简历</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..500&family=Noto+Sans+SC:wght@400;500;600&family=Noto+Serif+SC:wght@500;600&display=swap" rel="stylesheet">
 <style>
+/* Palette and type follow haotian14.github.io/Portfolio: ivory paper, warm ink, clay accent. */
 :root {
-  --ink: #18202c;
-  --text: #2c3442;
-  --muted: #687284;
-  --faint: #9aa3b2;
-  --line: #e3e7ee;
-  --accent: #2459a8;
-  --accent-soft: #edf2fa;
-  --bg: #ffffff;
-  --paper: #ffffff;
-  --desk: #eef0f4;
+  --ivory: #f4f2eb;
+  --ivory-sunken: #eae7db;
+  --ink: #191917;
+  --ink-soft: #45433c;
+  --muted: #7c7a71;
+  --line: rgba(25, 25, 23, 0.14);
+  --line-soft: rgba(25, 25, 23, 0.07);
+  --bg: var(--ivory);
+  --desk: var(--ivory-sunken);
+  --accent: #a8492a;
+  --accent-bright: #cc785c;
+
+  --font-display: "Newsreader", "Noto Serif SC", "Songti SC", Georgia, serif;
+  --font-sans: "Inter", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  --font-mono: "DM Mono", ui-monospace, "SF Mono", Menlo, monospace;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --ink: #eef1f6; --text: #d3d8e1; --muted: #9aa3b2; --faint: #6d7686;
-    --line: #2d333d; --accent: #82aef0; --accent-soft: #1c2738;
-    --paper: #15181e; --desk: #0d0f13;
+    --bg: #16150f; --desk: #100f0a; --ink: #f2efe5; --ink-soft: #cac6b8; --muted: #918d80;
+    --line: rgba(242, 239, 229, 0.15); --line-soft: rgba(242, 239, 229, 0.075);
+    --accent: #e29070; --accent-bright: #eaa88b;
   }
 }
 :root[data-theme="dark"] {
-  --ink: #eef1f6; --text: #d3d8e1; --muted: #9aa3b2; --faint: #6d7686;
-  --line: #2d333d; --accent: #82aef0; --accent-soft: #1c2738;
-  --paper: #15181e; --desk: #0d0f13;
+  --bg: #16150f; --desk: #100f0a; --ink: #f2efe5; --ink-soft: #cac6b8; --muted: #918d80;
+  --line: rgba(242, 239, 229, 0.15); --line-soft: rgba(242, 239, 229, 0.075);
+  --accent: #e29070; --accent-bright: #eaa88b;
 }
 
 * { box-sizing: border-box; }
 html, body { margin: 0; }
 body {
   background: var(--desk);
-  color: var(--text);
-  font: 13px/1.62 "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  color: var(--ink-soft);
+  font: 13px/1.68 var(--font-sans);
   -webkit-font-smoothing: antialiased;
-  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
 }
 a { color: inherit; text-decoration: none; }
-b, strong { color: var(--ink); font-weight: 700; }
-.m { color: var(--accent); font-weight: 700; }
+b, strong { color: var(--ink); font-weight: 600; }
+.m { color: var(--accent); font-weight: 600; }
 
 .page {
-  background: var(--paper);
+  background: var(--bg);
   max-width: 794px;
-  margin: 24px auto;
-  padding: 40px 46px 36px;
-  box-shadow: 0 1px 2px rgba(20, 30, 50, .06), 0 8px 28px rgba(20, 30, 50, .08);
-  border-radius: 6px;
+  margin: 28px auto;
+  padding: 48px 52px 40px;
+  border: 1px solid var(--line-soft);
+  border-radius: 4px;
 }
 
-/* ---------- Header ---------- */
-header { display: flex; gap: 24px; align-items: center; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
-.who { flex: 1; min-width: 0; }
-h1 { margin: 0; font-size: 30px; line-height: 1.15; letter-spacing: .06em; color: var(--ink); font-weight: 700; }
-h1 small { font-size: 15px; letter-spacing: .02em; color: var(--muted); font-weight: 500; margin-left: 10px; }
-.role { margin: 6px 0 12px; font-size: 14.5px; color: var(--accent); font-weight: 500; }
-.role span { color: var(--faint); margin: 0 6px; }
-.contacts { display: flex; flex-wrap: wrap; gap: 4px 16px; margin: 0; padding: 0; list-style: none; color: var(--text); font-size: 12.5px; }
-.contacts li { display: inline-flex; align-items: center; gap: 5px; }
-.contacts svg { width: 13px; height: 13px; stroke: var(--accent); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex: none; }
-.contacts li:empty, .contacts li.is-empty { display: none; }
-.photo { width: 92px; height: 116px; border-radius: 8px; object-fit: cover; object-position: center 20%; flex: none; }
-.photo:not([src]), .photo[src=""] { display: none; }
-
-/* ---------- Sections ---------- */
-section { margin-top: 16px; }
-h2 {
+/* ── Header ─────────────────────────────────────────── */
+.eyebrow {
   display: flex; align-items: center; gap: 10px;
-  margin: 0 0 8px; font-size: 15px; color: var(--ink); font-weight: 700; letter-spacing: .08em;
+  margin: 0 0 14px;
+  font: 10.5px var(--font-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--muted);
 }
-h2::before { content: ""; width: 4px; height: 15px; border-radius: 2px; background: var(--accent); }
-h2 em { font-style: normal; font-size: 10.5px; letter-spacing: .18em; color: var(--faint); font-weight: 500; }
-h2::after { content: ""; flex: 1; height: 1px; background: var(--line); }
-
-.entry { margin-top: 10px; }
-.entry:first-of-type { margin-top: 2px; }
-.head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
-.head .org { font-size: 14px; font-weight: 700; color: var(--ink); }
-.head .org .pos { font-weight: 500; color: var(--text); margin-left: 8px; font-size: 13px; }
-.head time { color: var(--muted); font-size: 12.5px; white-space: nowrap; }
-.sub { display: flex; justify-content: space-between; gap: 12px; color: var(--muted); font-size: 12.5px; margin-top: 1px; }
-.lead { margin: 4px 0 2px; }
-.group { margin: 6px 0 0; font-weight: 700; color: var(--ink); font-size: 12.5px; }
-.group::before { content: "▸"; color: var(--accent); margin-right: 5px; font-size: 11px; }
-
-ul { margin: 3px 0 0; padding: 0; list-style: none; }
-li.b { position: relative; padding-left: 14px; margin: 2px 0; }
-li.b::before {
-  content: ""; position: absolute; left: 3px; top: .72em;
-  width: 4px; height: 4px; border-radius: 50%; background: var(--accent); opacity: .75;
+.eyebrow::before {
+  content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent-bright);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent-bright) 18%, transparent);
 }
-
-.tags { display: inline-flex; flex-wrap: nowrap; gap: 4px; flex: none; }
-.tag {
-  display: inline-block; padding: 0 7px; border-radius: 4px;
-  background: var(--accent-soft); color: var(--accent);
-  font-size: 11px; line-height: 19px; font-weight: 500; white-space: nowrap;
+header { display: flex; gap: 28px; align-items: flex-end; padding-bottom: 22px; border-bottom: 1px solid var(--line); }
+.who { flex: 1; min-width: 0; }
+h1 {
+  margin: 0; font-family: var(--font-display); font-weight: 500;
+  font-size: 40px; line-height: 1.05; letter-spacing: .02em; color: var(--ink);
 }
-.link { color: var(--accent); font-size: 12px; }
+h1 em { font-style: italic; font-weight: 400; font-size: 26px; color: var(--muted); margin-left: 12px; letter-spacing: 0; }
+.tagline { margin: 10px 0 14px; font-family: var(--font-display); font-size: 16px; color: var(--ink-soft); }
+.tagline i { color: var(--accent); font-style: italic; }
+.contacts { display: flex; flex-wrap: wrap; gap: 3px 18px; margin: 0; padding: 0; list-style: none; font: 11.5px var(--font-mono); color: var(--ink-soft); }
+.contacts li { display: inline-flex; align-items: center; gap: 6px; }
+.contacts li::before { content: attr(data-k); color: var(--muted); }
+.contacts li.is-empty { display: none; }
+.photo {
+  width: 96px; height: 120px; flex: none; border-radius: 3px;
+  object-fit: cover; object-position: center 22%;
+  filter: sepia(.08) saturate(.92);
+}
+.photo:not([src]) { display: none; }
 
-/* Education: compact two-column rows */
-.edu { display: grid; grid-template-columns: 1fr auto; gap: 2px 12px; }
-.edu .row { display: contents; }
-.edu .school { color: var(--ink); font-weight: 700; }
-.edu .school span { font-weight: 500; color: var(--text); margin-left: 8px; }
-.edu .gpa { color: var(--muted); font-weight: 400; margin-left: 8px; font-size: 12.5px; }
-.edu time { color: var(--muted); font-size: 12.5px; text-align: right; }
+/* ── Sections ───────────────────────────────────────── */
+section { margin-top: 22px; }
+h2 {
+  display: grid; grid-template-columns: 104px 1fr; align-items: baseline;
+  margin: 0 0 10px;
+  font-family: var(--font-display); font-weight: 500; font-size: 19px; color: var(--ink); letter-spacing: .04em;
+}
+h2 .num { font: 10.5px var(--font-mono); letter-spacing: .14em; color: var(--accent); text-transform: uppercase; }
+h2 .en { font: italic 400 14px var(--font-display); color: var(--muted); margin-left: 10px; letter-spacing: 0; }
+
+.entry {
+  display: grid; grid-template-columns: 104px 1fr;
+  padding: 12px 0 13px; border-top: 1px solid var(--line-soft);
+}
+.entry:first-of-type { border-top: 1px solid var(--line); }
+.when { font: 10.5px/1.7 var(--font-mono); color: var(--muted); letter-spacing: .04em; padding-top: 3px; }
+.when b { display: block; color: var(--accent); font-weight: 500; }
+.what { min-width: 0; }
+h3 {
+  margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 16px; line-height: 1.35; color: var(--ink);
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 10px;
+}
+h3 .pos { font-family: var(--font-sans); font-weight: 500; font-size: 13px; color: var(--ink-soft); }
+h3 .link { margin-left: auto; font: 10.5px var(--font-mono); color: var(--muted); font-weight: 400; }
+.sub { margin: 2px 0 0; color: var(--muted); font-size: 12.5px; }
+.stack { margin: 3px 0 0; font: 10.5px var(--font-mono); color: var(--accent); letter-spacing: .02em; }
+.stack span + span::before { content: " / "; color: var(--muted); }
+.group { margin: 9px 0 1px; font-family: var(--font-display); font-weight: 600; font-size: 14px; color: var(--ink); }
+.group small { font: 10.5px var(--font-mono); color: var(--accent); margin-left: 8px; letter-spacing: .04em; font-weight: 400; }
+
+ul { margin: 4px 0 0; padding: 0; list-style: none; }
+li.b { position: relative; padding-left: 16px; margin: 2px 0; }
+li.b::before { content: "—"; position: absolute; left: 0; color: var(--accent-bright); font-size: 11px; top: .1em; }
+
+/* Highlights: three numbered statements */
+.highlights { display: grid; grid-template-columns: 104px 1fr; border-top: 1px solid var(--line); padding-top: 12px; }
+.highlights ol { grid-column: 2; margin: 0; padding: 0; list-style: none; counter-reset: h; }
+.highlights li { counter-increment: h; position: relative; padding-left: 26px; margin: 0 0 5px; }
+.highlights li::before {
+  content: counter(h, decimal-leading-zero); position: absolute; left: 0; top: .25em;
+  font: 10.5px var(--font-mono); color: var(--accent);
+}
 
 /* Skills */
-.skills { display: grid; grid-template-columns: 74px 1fr; gap: 4px 10px; margin: 2px 0 0; }
-.skills dt { color: var(--ink); font-weight: 700; }
+.skills { display: grid; grid-template-columns: 104px 1fr; gap: 5px 0; margin: 0; padding-top: 12px; border-top: 1px solid var(--line); }
+.skills dt { font: 10.5px/2.1 var(--font-mono); color: var(--muted); letter-spacing: .06em; }
 .skills dd { margin: 0; }
 
-.highlights li.b { margin: 3px 0; }
+footer { margin-top: 22px; padding-top: 12px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; font: 10px var(--font-mono); color: var(--muted); letter-spacing: .08em; }
 
-/* ---------- Narrow screens ---------- */
+/* ── Narrow screens ─────────────────────────────────── */
 @media (max-width: 640px) {
-  .page { margin: 0; padding: 24px 16px; border-radius: 0; box-shadow: none; }
-  header { flex-direction: column-reverse; align-items: flex-start; }
-  h1 small { display: block; margin: 4px 0 0; }
-  .head, .sub { flex-direction: column; gap: 0; }
-  .edu { grid-template-columns: 1fr; }
-  .edu time { text-align: left; margin-bottom: 6px; }
-  .skills { grid-template-columns: 1fr; }
+  .page { margin: 0; padding: 28px 16px; border: 0; border-radius: 0; }
+  header { flex-direction: column-reverse; align-items: flex-start; gap: 18px; }
+  h1 { font-size: 34px; }
+  h1 em { display: block; margin: 6px 0 0; }
+  h2, .entry, .highlights, .skills { grid-template-columns: 1fr; }
+  .highlights ol { grid-column: 1; }
+  .when { padding: 0 0 4px; }
+  .when b { display: inline; margin-right: 6px; }
+  h3 .link { margin-left: 0; flex-basis: 100%; }
+  footer { flex-direction: column; gap: 4px; }
 }
 
-/* ---------- Print: A4 ---------- */
+/* ── Print: A4 on ivory paper ───────────────────────── */
 @media print {
-  @page { size: A4; margin: 10mm 12mm 9mm; }
-  :root { --ink: #111827; --text: #262d3a; --muted: #5f6878; --faint: #9aa3b2; --line: #dfe3ea; --accent: #2459a8; --accent-soft: #edf2fa; --paper: #fff; --desk: #fff; }
-  body { font-size: 9.8pt; line-height: 1.6; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  .page { max-width: none; margin: 0; padding: 0; box-shadow: none; border-radius: 0; }
-  .entry, li.b, .edu, .skills { break-inside: avoid; }
-  h2 { break-after: avoid; }
-  section { margin-top: 16px; }
+  @page { size: A4; margin: 12mm 14mm 10mm; background: #f4f2eb; }
+  :root {
+    --bg: #f4f2eb; --desk: #f4f2eb; --ink: #191917; --ink-soft: #3b3a34; --muted: #77756c;
+    --line: rgba(25, 25, 23, 0.16); --line-soft: rgba(25, 25, 23, 0.08);
+    --accent: #a8492a; --accent-bright: #cc785c;
+  }
+  body { font-size: 9.1pt; line-height: 1.52; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page { max-width: none; margin: 0; padding: 0; border: 0; }
   header { padding-bottom: 14px; }
-  .entry { margin-top: 10px; }
+  .eyebrow { margin-bottom: 10px; }
+  .tagline { margin: 6px 0 9px; font-size: 14px; }
+  .photo { width: 80px; height: 100px; }
+  section { margin-top: 12px; }
+  h2 { margin-bottom: 6px; font-size: 17px; }
+  .entry { padding: 7px 0 7px; }
+  .entry .head-keep { break-after: avoid; }
+  h3 { font-size: 15px; }
+  .group { margin-top: 6px; }
+  .highlights, .skills { padding-top: 8px; }
+  h2, h3, .sub, .stack, .group { break-after: avoid; }
+  li.b, .skills, .highlights { break-inside: avoid; }
+  footer { display: none; }
+  .highlights li { margin-bottom: 3px; }
+  h1 { font-size: 32px; }
 }
 </style>
 </head>
@@ -150,122 +189,164 @@ li.b::before {
 
   <header>
     <div class="who">
-      <h1>骆皓天<small>Hart Luo</small></h1>
-      <p class="role">前端开发工程师<span>/</span>React · Vue 3 · TypeScript<span>/</span>AIGC · 无限画布</p>
+      <p class="eyebrow">Frontend Engineer · Résumé 2026</p>
+      <h1>骆皓天<em>Hart Luo</em></h1>
+      <p class="tagline">前端开发工程师 —— 把复杂的交互，做成<i>清晰可靠</i>的产品体验。</p>
       <ul class="contacts">
-        <li><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span>意向：北京 · 上海 · 广州 · 深圳 · 杭州 · 苏州 · 成都 · 重庆</span></li>
-        <li data-private="phone"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span></span></li>
-        <li><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><a href="mailto:luohaotian0616@gmail.com">luohaotian0616@gmail.com</a></li>
-        <li><svg viewBox="0 0 24 24"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg><a href="https://github.com/Haotian14">github.com/Haotian14</a></li>
-        <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg><a href="https://haotian14.github.io/Portfolio/">haotian14.github.io/Portfolio</a></li>
+        <li data-k="TEL" data-private="phone"><span></span></li>
+        <li data-k="MAIL"><a href="mailto:luohaotian0616@gmail.com">luohaotian0616@gmail.com</a></li>
+        <li data-k="GITHUB"><a href="https://github.com/Haotian14">github.com/Haotian14</a></li>
+        <li data-k="WEB"><a href="https://haotian14.github.io/Portfolio/">haotian14.github.io/Portfolio</a></li>
       </ul>
     </div>
     <img class="photo" data-private="photo" alt="骆皓天证件照">
   </header>
 
   <section>
-    <h2>个人优势<em>HIGHLIGHTS</em></h2>
-    <ul class="highlights">
-      <li class="b">现任同花顺前端开发工程师，<b>无限画布核心开发</b>，参与技术选型验证、协议设计到上线迭代全过程，画布上线后日活 <span class="m">3000+</span>；擅长复杂交互与前端状态建模（文档模型、增量保存、撤销重做）。</li>
-      <li class="b">以测试和性能数据保证质量：自研画布引擎 10 万节点视口查询提速 <span class="m">13×</span>，德州扑克训练器 <span class="m">985</span> 个自动化测试 + 端到端回归。</li>
-      <li class="b">UNSW 计算机本科 + 信息技术硕士，英语可作为工作语言；能独立完成需求拆解、方案设计、联调到上线的完整交付。</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>教育经历<em>EDUCATION</em></h2>
-    <div class="edu">
-      <div class="row"><div class="school">新南威尔士大学 UNSW Sydney（QS 19）<span>信息技术 · 硕士</span></div><time>2024.09 – 2026.01</time></div>
-      <div class="row"><div class="school">新南威尔士大学 UNSW Sydney（QS 19）<span>计算机科学 · 本科</span><span class="gpa">GPA 6.03 / 7.0</span></div><time>2021.09 – 2024.06</time></div>
+    <h2><span class="num">00 · About</span><span>个人优势<span class="en">Highlights</span></span></h2>
+    <div class="highlights">
+      <ol>
+        <li>现任同花顺前端开发工程师，<b>无限画布核心开发</b>，参与技术选型验证、协议设计到上线迭代全过程，画布上线后日活 <span class="m">3000+</span>；擅长复杂交互与前端状态建模（文档模型、增量保存、撤销重做）。</li>
+        <li>以测试和性能数据保证质量：自研画布引擎 10 万节点视口查询提速 <span class="m">13×</span>，德州扑克训练器 <span class="m">985</span> 个自动化测试 + 端到端回归。</li>
+        <li>UNSW 计算机本科 + 信息技术硕士，<b>5 年海外学习与工作经历</b>，英语可作为工作语言；能独立完成需求拆解、方案设计、联调到上线的完整交付。</li>
+      </ol>
     </div>
   </section>
 
   <section>
-    <h2>工作经历<em>EXPERIENCE</em></h2>
+    <h2><span class="num">01 · Work</span><span>工作经历<span class="en">Experience</span></span></h2>
 
-    <div class="entry">
-      <div class="head"><div class="org">同花顺<span class="pos">前端开发工程师</span></div><time>2026.04 – 至今</time></div>
-      <div class="sub"><span>DreamFace · 海外 AIGC 数字人 / 视频 / 图片生成平台（Web + 管理后台）</span><span class="tags"><span class="tag">Vue 3</span><span class="tag">TypeScript</span><span class="tag">Canvas</span></span></div>
+    <article class="entry">
+      <div class="when"><b>2026.04</b>至今</div>
+      <div class="what">
+        <h3>同花顺<span class="pos">前端开发工程师</span></h3>
+        <p class="sub">DreamFace · 海外 AIGC 数字人 / 视频 / 图片生成平台（Web + 管理后台）</p>
+        <p class="stack"><span>Vue 3</span><span>TypeScript</span><span>Canvas</span><span>埋点体系</span></p>
 
-      <p class="group">无限画布（AIGC 创作工作台）· 核心开发，从 0 到上线，日活 3000+</p>
-      <ul>
-        <li class="b">负责画布引擎技术选型验证，覆盖 <span class="m">26</span> 项能力点并输出风险评估，推动立项；从零搭建画布路由、工作区与可拖拽宽度的 Agent 对话面板。</li>
-        <li class="b">设计画布协议层：<b>CanvasDocument</b> 数据模型、增量 Command 更新协议、本地 History（Undo / Redo）方案与后端联调文档共 <span class="m">4</span> 份，将保存链路从 localStorage 切换为真正落库。</li>
-        <li class="b">实现增量保存队列：防抖合并、重试复用 requestId 保证幂等、revision 冲突重试，并按权重切批解决 <span class="m">300</span> 节点批量操作超出后端单请求上限的问题。</li>
-        <li class="b">解决渲染引擎与业务数据之间的状态同步问题：幽灵节点、选中态回弹、删除节点后渲染循环崩溃、断网后页面冻结、300 资产无法渲染等，保障画布在高频操作与弱网下稳定。</li>
-        <li class="b">完成缩放档位 / 视口锚点、吸附、框选、等比缩放、镜像、拖拽上传与 Safari 兼容等交互；编写画布架构讲解文档并在团队内做技术分享。</li>
-      </ul>
+        <p class="group">无限画布 · AIGC 创作工作台<small>核心开发 · 0 → 1 · 日活 3000+</small></p>
+        <ul>
+          <li class="b">负责画布引擎技术选型验证，覆盖 <span class="m">26</span> 项能力点并输出风险评估，推动立项；从零搭建画布路由、工作区与可拖拽宽度的 Agent 对话面板。</li>
+          <li class="b">设计画布协议层：<b>CanvasDocument</b> 数据模型、增量 Command 更新协议、本地 History（Undo / Redo）方案与后端联调文档共 <span class="m">4</span> 份，将保存链路从 localStorage 切换为真正落库。</li>
+          <li class="b">实现增量保存队列：防抖合并、重试复用 requestId 保证幂等、revision 冲突重试，并按权重切批解决 <span class="m">300</span> 节点批量操作超出后端单请求上限的问题。</li>
+          <li class="b">解决渲染引擎与业务数据之间的状态同步问题：幽灵节点、选中态回弹、删除节点后渲染循环崩溃、断网后页面冻结、300 资产无法渲染等，保障画布在高频操作与弱网下稳定。</li>
+          <li class="b">完成缩放档位 / 视口锚点、吸附、框选、等比缩放、镜像、拖拽上传与 Safari 兼容等交互；编写画布架构讲解文档并在团队内做技术分享。</li>
+        </ul>
 
-      <p class="group">运营位与数据埋点</p>
-      <ul>
-        <li class="b"><b>顶部通栏 Banner</b>：PC 端组件 + 管理后台配置，从接口分流、组件、埋点到提测一条龙，并推广至全部 PC 业务页；<b>首页活动弹窗</b>：图片 / 视频混合轮播 + 后台活动管理模块，从 mock 到联调上线。</li>
-        <li class="b">负责首页、画布、每日趋势等核心模块的曝光 / 点击埋点；对照代码逐条评估埋点可行性，提前识别触发时机缺失、埋点 ID 冲突等需求缺陷并推动产品统一口径；推动 Sonar 与无障碍告警整改。</li>
-      </ul>
-    </div>
+        <p class="group">运营位与数据埋点</p>
+        <ul>
+          <li class="b"><b>顶部通栏 Banner</b>：PC 端组件 + 管理后台配置，从接口分流、组件、埋点到提测一条链路完成，并推广至全部 PC 业务页；<b>首页活动弹窗</b>：图片 / 视频混合轮播 + 后台活动管理模块，从 mock 到联调上线。</li>
+          <li class="b">负责首页、画布、每日趋势等核心模块的曝光 / 点击埋点；对照代码逐条评估埋点可行性，提前识别触发时机缺失、埋点 ID 冲突等需求缺陷并推动产品统一口径；推动 Sonar 与无障碍告警整改。</li>
+        </ul>
+      </div>
+    </article>
   </section>
 
   <section>
-    <h2>实习经历<em>INTERNSHIPS</em></h2>
+    <h2><span class="num">02 · Intern</span><span>实习经历<span class="en">Internships</span></span></h2>
 
-    <div class="entry">
-      <div class="head"><div class="org">DVINE Experiences（澳洲旅游服务公司）<span class="pos">软件 / IT 实习生</span></div><time>2025.06 – 2025.11</time></div>
-      <div class="sub"><span>Web 自动化预约与运营管理系统</span><span class="tags"><span class="tag">GoHighLevel</span><span class="tag">Workflows</span></span></div>
-      <ul>
-        <li class="b">基于 GHL Forms / Custom Fields 设计配置驱动的预约表单与用户页面，按产品与场景切换字段和校验逻辑，交付 <span class="m">10+</span> 表单 / 功能模块。</li>
-        <li class="b">搭建 Trigger → Action 自动化链路，覆盖预约创建、确认通知、状态更新与提醒，核心流程全链路跑通；精简表单结构，减少客户填写步骤与人工跟进。</li>
-      </ul>
-    </div>
+    <article class="entry">
+      <div class="when"><b>2025.06</b>2025.11</div>
+      <div class="what">
+        <h3>DVINE Experiences<span class="pos">软件 / IT 实习生 · 澳洲旅游服务公司</span></h3>
+        <p class="sub">Web 自动化预约与运营管理系统</p>
+        <p class="stack"><span>GoHighLevel</span><span>Forms</span><span>Workflows</span></p>
+        <ul>
+          <li class="b">基于 GHL Forms / Custom Fields 设计配置驱动的预约表单与用户页面，按产品与场景切换字段和校验逻辑，交付 <span class="m">10+</span> 表单 / 功能模块。</li>
+          <li class="b">搭建 Trigger → Action 自动化链路，覆盖预约创建、确认通知、状态更新与提醒，核心流程全链路跑通；精简表单结构，减少客户填写步骤与人工跟进。</li>
+        </ul>
+      </div>
+    </article>
 
-    <div class="entry">
-      <div class="head"><div class="org">博彦科技（驻场阿里巴巴项目）<span class="pos">前端开发实习生</span></div><time>2024.06 – 2024.09</time></div>
-      <div class="sub"><span>茶百道供应链管理系统 · 企业级 SaaS</span><span class="tags"><span class="tag">React</span><span class="tag">Umi</span><span class="tag">Ant Design Pro</span><span class="tag">ECharts</span></span></div>
-      <ul>
-        <li class="b">参与供应链后台建设，负责运输管理与订单可视化模块，交付 <span class="m">10+</span> 业务功能页面。</li>
-        <li class="b">基于 Umi + React + TypeScript + Ant Design Pro 开发，封装 <span class="m">10+</span> 可复用业务组件；用 ECharts 实现 <span class="m">20+</span> 数据可视化报表。</li>
-      </ul>
-    </div>
+    <article class="entry">
+      <div class="when"><b>2024.06</b>2024.09</div>
+      <div class="what">
+        <h3>博彦科技<span class="pos">前端开发实习生 · 驻场阿里巴巴项目</span></h3>
+        <p class="sub">茶百道供应链管理系统 · 企业级 SaaS</p>
+        <p class="stack"><span>React</span><span>Umi</span><span>Ant Design Pro</span><span>ECharts</span></p>
+        <ul>
+          <li class="b">参与供应链后台建设，负责运输管理与订单可视化模块，交付 <span class="m">10+</span> 业务功能页面。</li>
+          <li class="b">基于 Umi + React + TypeScript + Ant Design Pro 开发，封装 <span class="m">10+</span> 可复用业务组件；用 ECharts 实现 <span class="m">20+</span> 数据可视化报表。</li>
+        </ul>
+      </div>
+    </article>
   </section>
 
   <section>
-    <h2>项目经历<em>PROJECTS</em></h2>
+    <h2><span class="num">03 · Build</span><span>项目经历<span class="en">Projects</span></span></h2>
 
-    <div class="entry">
-      <div class="head"><div class="org">infinite-canvas-core<span class="pos">无头无限画布引擎</span></div><a class="link" href="https://github.com/Haotian14/infinite-canvas-core">github.com/Haotian14/infinite-canvas-core</a></div>
-      <div class="sub"><span>相机 / 空间索引 / 视口裁剪 / 手势分层，核心不依赖 DOM，可在 Worker 与 Node 中运行</span><span class="tags"><span class="tag">TypeScript</span><span class="tag">Canvas2D</span><span class="tag">Vitest</span></span></div>
-      <ul>
-        <li class="b">10 万节点下视口查询 <span class="m">48 µs</span>，较全量扫描快 <span class="m">13×</span>；全屏最坏场景经绘制批处理与亚像素 LOD 从 44 ms 降至 <span class="m">13.8 ms</span>（3.2×），基准可一键复现。</li>
-      </ul>
-    </div>
+    <article class="entry">
+      <div class="when"><b>开源</b>个人项目</div>
+      <div class="what">
+        <h3>infinite-canvas-core<span class="pos">无头无限画布引擎</span><a class="link" href="https://github.com/Haotian14/infinite-canvas-core">github ↗</a></h3>
+        <p class="sub">相机 / 空间索引 / 视口裁剪 / 手势分层，核心不依赖 DOM，可在 Worker 与 Node 中运行</p>
+        <p class="stack"><span>TypeScript</span><span>Canvas2D</span><span>Vitest</span><span>Playwright</span></p>
+        <ul>
+          <li class="b">10 万节点下视口查询 <span class="m">48 µs</span>，较全量扫描快 <span class="m">13×</span>；全屏最坏场景经绘制批处理与亚像素 LOD 从 44 ms 降至 <span class="m">13.8 ms</span>（3.2×），基准可一键复现。</li>
+        </ul>
+      </div>
+    </article>
 
-    <div class="entry">
-      <div class="head"><div class="org">德州扑克训练器<span class="pos">离线优先 PWA</span></div><a class="link" href="https://texas-hold.luohaotian0616.workers.dev/">texas-hold.luohaotian0616.workers.dev</a></div>
-      <div class="sub"><span>打牌 → 保存手牌 → EV 评估 → 标记失误 → 单手复盘 → 长期漏洞统计的完整训练闭环</span><span class="tags"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Playwright</span></span></div>
-      <ul>
-        <li class="b">完整 6-max 无限注引擎（边池、全下、筹码守恒），6 种 AI 性格 + GTO 模式基于范围感知 EV 决策；逐决策点复盘与 15 类漏洞报表。</li>
-        <li class="b"><span class="m">985</span> 个自动化测试；牌型评估与参考实现对拍 10 万组，1 万手随机自对弈验证不变量；IndexedDB 持久化 + Service Worker 离线运行。</li>
-      </ul>
-    </div>
+    <article class="entry">
+      <div class="when"><b>开源</b>个人项目</div>
+      <div class="what">
+        <h3>德州扑克训练器<span class="pos">离线优先 PWA</span><a class="link" href="https://texas-hold.luohaotian0616.workers.dev/">live ↗</a></h3>
+        <p class="sub">打牌 → 保存手牌 → EV 评估 → 标记失误 → 单手复盘 → 长期漏洞统计的完整训练闭环</p>
+        <p class="stack"><span>React</span><span>TypeScript</span><span>IndexedDB</span><span>Playwright</span></p>
+        <ul>
+          <li class="b">完整 6-max 无限注引擎（边池、全下、筹码守恒），6 种 AI 性格 + GTO 模式基于范围感知 EV 决策；逐决策点复盘与 15 类漏洞报表。</li>
+          <li class="b"><span class="m">985</span> 个自动化测试；牌型评估与参考实现对拍 10 万组，1 万手随机自对弈验证不变量；Service Worker 离线运行。</li>
+        </ul>
+      </div>
+    </article>
 
-    <div class="entry">
-      <div class="head"><div class="org">UNSW HandbookX<span class="pos">学生创业项目 · 前端负责人</span></div><a class="link" href="https://github.com/fairymavisv/UNSW-HandBookX">github.com/fairymavisv/UNSW-HandBookX</a></div>
-      <div class="sub"><span>UNSW 课程查询与规划平台，校内测试阶段获得 100+ 学生用户</span><span class="tags"><span class="tag">React</span><span class="tag">组件规范</span></span></div>
-      <ul>
-        <li class="b">制定统一开发规范与组件风格指南，主导每周 Code Review，封装公共组件与工具函数，降低团队重复开发。</li>
-      </ul>
-    </div>
+    <article class="entry">
+      <div class="when"><b>学生创业</b>前端负责人</div>
+      <div class="what">
+        <h3>UNSW HandbookX<span class="pos">课程查询与规划平台</span><a class="link" href="https://github.com/fairymavisv/UNSW-HandBookX">github ↗</a></h3>
+        <p class="sub">针对官方选课系统体验差的问题，校内测试阶段获得 100+ 学生用户</p>
+        <ul>
+          <li class="b">制定统一开发规范与组件风格指南，主导每周 Code Review，封装公共组件与工具函数，降低团队重复开发。</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="entry">
+      <div class="when"><b>更多</b>作品</div>
+      <div class="what">
+        <ul>
+          <li class="b"><b>Nimbus Scheduler</b>：轻量级分布式任务调度系统，资源感知调度、预占与掉线回收，WebSocket 实时 Dashboard（Node.js / Vue 3）。</li>
+          <li class="b"><b>RepoQuest</b>：把任意 GitHub 仓库变成可探索的像素地图，支持源码预览与 PNG 导出，纯前端无后端。</li>
+          <li class="b"><b>sts2-mcp</b>：《杀戮尖塔 2》自动游玩 Agent，CoreCLR Profiler 桥接层 + 回合内束搜索决策。</li>
+          <li class="b"><b>前端 / 算法复习手册</b>：50 个前端专题与 201 道 ML / LLM 题目的知识站点，全站预渲染。</li>
+        </ul>
+      </div>
+    </article>
   </section>
 
   <section>
-    <h2>专业技能<em>SKILLS</em></h2>
+    <h2><span class="num">04 · Study</span><span>教育经历<span class="en">Education</span></span></h2>
+    <article class="entry">
+      <div class="when"><b>2024.09</b>2026.01</div>
+      <div class="what"><h3>新南威尔士大学 UNSW Sydney<span class="pos">信息技术 · 硕士 · QS 19</span></h3></div>
+    </article>
+    <article class="entry">
+      <div class="when"><b>2021.09</b>2024.06</div>
+      <div class="what"><h3>新南威尔士大学 UNSW Sydney<span class="pos">计算机科学 · 本科 · GPA 6.03 / 7.0</span></h3></div>
+    </article>
+  </section>
+
+  <section>
+    <h2><span class="num">05 · Craft</span><span>专业技能<span class="en">Skills</span></span></h2>
     <dl class="skills">
-      <dt>前端</dt><dd>熟练 JavaScript / TypeScript、<b>React</b>、<b>Vue 3</b>，理解事件循环、浏览器渲染流程与性能优化；熟悉 Next.js、Umi、Vite、Ant Design、TailwindCSS、Zustand、Sass、ECharts、PWA / IndexedDB</dd>
-      <dt>图形交互</dt><dd>Canvas2D 与复杂交互：坐标变换、空间索引、视口裁剪、增量渲染；文档模型、增量保存与撤销重做设计</dd>
-      <dt>工程化</dt><dd>Vitest / Playwright 测试、GitHub Actions、Docker、Sonar；性能基准与 Profiling、无障碍（a11y）、埋点体系设计；日常使用 Claude Code / Codex 辅助开发与代码评审</dd>
-      <dt>其他</dt><dd>Node.js、WebSocket、RESTful API 设计；Python、数据结构与算法</dd>
-      <dt>语言</dt><dd>中文（母语）、英语（UNSW 本硕全英文授课，可作为工作语言）</dd>
+      <dt>FRONTEND</dt><dd>熟练 JavaScript / TypeScript、<b>React</b>、<b>Vue 3</b>，理解事件循环、浏览器渲染流程与性能优化；熟悉 Next.js、Umi、Vite、Ant Design、TailwindCSS、Zustand、Sass、ECharts、PWA / IndexedDB</dd>
+      <dt>GRAPHICS</dt><dd>Canvas2D 与复杂交互：坐标变换、空间索引、视口裁剪、增量渲染；文档模型、增量保存与撤销重做设计</dd>
+      <dt>ENGINEERING</dt><dd>Vitest / Playwright 测试、GitHub Actions、Docker、Sonar；性能基准与 Profiling、无障碍（a11y）、埋点体系设计；日常使用 Claude Code / Codex 辅助开发与代码评审</dd>
+      <dt>OTHER</dt><dd>Node.js、WebSocket、RESTful API 设计；Python、数据结构与算法</dd>
+      <dt>LANGUAGE</dt><dd>中文（母语）、英语（5 年澳洲本硕全英文学习与实习，可作为工作语言）</dd>
     </dl>
   </section>
 
+  <footer><span>HART LUO · 骆皓天</span><span>UPDATED 2026.10</span></footer>
 </main>
 <script>
   // Private fields (phone, photo) are filled in at build time from private/;
