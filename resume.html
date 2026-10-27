@@ -50,7 +50,7 @@ body {
 }
 a { color: inherit; text-decoration: none; }
 b, strong { color: var(--ink); font-weight: 600; }
-.m { color: var(--accent); font-weight: 600; }
+.m { color: var(--accent); font-weight: 600; white-space: nowrap; }
 code { font: .92em var(--font-mono); }
 
 .page {
@@ -187,7 +187,7 @@ footer { margin-top: 22px; padding-top: 12px; border-top: 1px solid var(--line);
 /* ── Print: A4 on ivory paper ───────────────────────── */
 @media print {
   .lang-switch { display: none; }
-  .page[data-lang="en"] { font-size: 8.9pt; line-height: 1.48; }
+  .page[data-lang="en"] { font-size: 8.9pt; line-height: 1.43; }
   .page[data-lang="en"] .sub { font-size: 11.5px; }
   @page { size: A4; margin: 12mm 14mm 10mm; background: #f4f2eb; }
   :root {
@@ -195,15 +195,17 @@ footer { margin-top: 22px; padding-top: 12px; border-top: 1px solid var(--line);
     --line: rgba(25, 25, 23, 0.16); --line-soft: rgba(25, 25, 23, 0.08);
     --accent: #a8492a; --accent-bright: #cc785c;
   }
-  body { font-size: 9.1pt; line-height: 1.52; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-size: 9.1pt; line-height: 1.45; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   .page { max-width: none; margin: 0; padding: 0; border: 0; }
   header { padding-bottom: 14px; }
   .eyebrow { margin-bottom: 10px; }
   .tagline { margin: 6px 0 9px; font-size: 14px; }
   .photo { width: 80px; height: 100px; }
-  section { margin-top: 12px; }
+  section { margin-top: 10px; }
   h2 { margin-bottom: 6px; font-size: 17px; }
-  .entry { padding: 7px 0 7px; }
+  h2, .entry, .highlights, .skills { grid-template-columns: 88px 1fr; }
+  h2 .num { letter-spacing: .1em; white-space: nowrap; }
+  .entry { padding: 6px 0; }
   .entry .head-keep { break-after: avoid; }
   h3 { font-size: 15px; }
   .group { margin-top: 6px; }
@@ -211,7 +213,7 @@ footer { margin-top: 22px; padding-top: 12px; border-top: 1px solid var(--line);
   h2, h3, .sub, .stack, .group { break-after: avoid; }
   li.b, .skills, .highlights { break-inside: avoid; }
   footer { display: none; }
-  .highlights li { margin-bottom: 3px; }
+  .highlights li { margin-bottom: 2px; }
   h1 { font-size: 32px; }
 }
 </style>
@@ -227,7 +229,7 @@ footer { margin-top: 22px; padding-top: 12px; border-top: 1px solid var(--line);
     <div class="who">
       <p class="eyebrow">Frontend Engineer · Résumé 2026</p>
       <h1>骆皓天<em>Hart Luo</em></h1>
-      <p class="tagline">前端开发工程师 · UNSW 本硕（QS 19）· 方向：<i>Canvas 图形交互与复杂状态管理</i></p>
+      <p class="tagline">前端开发工程师 · UNSW 本硕（QS 19）· 方向：<i>AI Agent 应用、Canvas 与复杂状态管理</i></p>
       <ul class="contacts">
         <li data-k="TEL" data-private="phone"><span></span></li>
         <li data-k="MAIL"><a href="mailto:luohaotian0616@gmail.com">luohaotian0616@gmail.com</a></li>
@@ -242,7 +244,7 @@ footer { margin-top: 22px; padding-top: 12px; border-top: 1px solid var(--line);
     <h2><span class="num">00 · About</span><span>个人优势<span class="en">Highlights</span></span></h2>
     <div class="highlights">
       <ol>
-        <li>同花顺 DreamFace 项目组前端（全端日活 <span class="m">30 万+</span> 的 AIGC 出海产品），参与无限画布从 0 到上线，负责文档协议、增量保存链路与渲染层状态一致性。</li>
+        <li>同花顺 DreamFace 核心前端，负责日活 <span class="m">10 万+</span> 的多模态 Agent 与日活 <span class="m">2 万</span> 的无限画布建设，涵盖流式会话恢复、交互式任务续跑、产物一致性与增量持久化。</li>
         <li>业余开源画布引擎 infinite-canvas-core，以基准测试驱动优化：10 万节点视口查询 <span class="m">48 µs</span>，最坏帧 44 → <span class="m">13.8 ms</span>。</li>
         <li>UNSW 计算机本科 + 信息技术硕士（GPA 6.03 / 6.12，满分 7），近 5 年澳洲学习与实习经历，英语可作为工作语言。</li>
       </ol>
@@ -256,16 +258,16 @@ footer { margin-top: 22px; padding-top: 12px; border-top: 1px solid var(--line);
       <div class="when"><b>2026.04</b>至今</div>
       <div class="what">
         <h3>同花顺<span class="pos">前端开发工程师</span></h3>
-        <p class="sub">DreamFace 项目组 · 同花顺 AIGC 出海产品，<b>全端日活 30 万+</b>，覆盖 iOS / Android / Web，提供数字人口播、图生视频、动作迁移与声音克隆等能力；本人参与 Web 端、H5 与管理后台开发</p>
-        <p class="stack"><span>Vue 3</span><span>TypeScript</span><span>Canvas</span><span>埋点体系</span></p>
+        <p class="sub">DreamFace 项目组 · 同花顺 AIGC 出海产品，<b>全端日活 30 万+</b>，覆盖 iOS / Android / Web，提供数字人口播、图生视频、动作迁移与声音克隆等能力；本人负责 Agent 与 Canvas 核心前端，参与 Web、H5 与管理后台开发</p>
+        <p class="stack"><span>Vue 3 / Nuxt 3</span><span>TypeScript</span><span>SSE</span><span>Canvas</span><span>Vitest</span></p>
 
-        <p class="group">无限画布 · AIGC 创作工作台<small>核心开发 · 从 0 到上线 · 日活 3000+</small></p>
+        <p class="group">多模态 Agent 与无限画布<small>核心开发 · Agent 日活 10 万+ · Canvas 日活 2 万</small></p>
         <ul>
-          <li class="b">立项前对候选画布引擎（Woven Canvas）完成 <span class="m">26</span> 项可行性验证，明确能力边界与风险，作为立项依据；随后从零搭建画布路由、工作区与可拖拽宽度的 Agent 对话面板。</li>
-          <li class="b">设计画布协议层：<b>CanvasDocument</b> 数据模型、增量 Command 更新协议、本地 History（Undo / Redo）方案与后端联调文档共 <span class="m">4</span> 份，将保存链路从 localStorage 切换为真正落库。</li>
-          <li class="b">实现增量保存队列：防抖合并连续操作、重试复用 requestId 保证幂等、revision 冲突自动重试，并按权重切批，解决 <span class="m">300</span> 节点批量操作超出后端单请求上限导致保存失败的问题。</li>
-          <li class="b">定位并修复渲染引擎与业务文档之间的 <span class="m">5</span> 类状态不一致根因（幽灵节点、选中态回弹、删除后渲染循环崩溃、断网冻结、大量资产渲染失败）并补充回归测试，保障画布在高频操作与弱网下稳定。</li>
-          <li class="b">实现缩放档位与视口锚点、吸附、框选、等比缩放、镜像、拖拽上传与 Safari 兼容等交互；编写画布架构讲解文档并在团队内做技术分享。</li>
+          <li class="b"><b>可恢复的流式会话</b>：设计单会话状态与多会话管理分层，复用至 PC、H5 与 Canvas；区分连接关闭、任务挂起与执行终态，基于事件游标续连，处理历史快照与实时消息竞态、ID 迁移及重放合并，支持后台生成与重进恢复。</li>
+          <li class="b"><b>交互式任务续跑</b>：实现问题澄清、音色选择、费用确认及充值后继续，串联任务挂起、用户提交与原任务续跑；通过重试复用提交标识、丢失回执补查和卡片状态合并，处理重复点击、提交结果不确定及旧事件导致的状态回退。</li>
+          <li class="b"><b>Agent 与画布一致性</b>：以输出 ID 关联生成占位、最终媒体与服务端快照，协调本地保存与远端产物对账，补齐缺失节点、清理残留占位；通过项目会话标识隔离延迟回调，处理重复落图与跨项目写入问题。</li>
+          <li class="b"><b>文档协议与增量保存</b>：设计 CanvasDocument、增量 Command 与 Undo / Redo 方案，推动画布从本地存储接入服务端持久化；实现防抖合并、幂等重试、revision 冲突重试及加权切批，解决 <span class="m">300</span> 节点批量操作超出单请求上限的保存失败。</li>
+          <li class="b"><b>稳定性与工程交付</b>：参与无限画布从 0 到上线，修复文档与渲染引擎间 <span class="m">5</span> 类状态一致性问题，覆盖幽灵节点、选中态回弹、删除崩溃、断网冻结及批量资产渲染失败；补充会话恢复、交互续跑与项目隔离回归用例，编写架构文档并开展团队分享。</li>
         </ul>
 
         <p class="group">运营位与数据埋点</p>
@@ -346,12 +348,6 @@ footer { margin-top: 22px; padding-top: 12px; border-top: 1px solid var(--line);
       </div>
     </article>
 
-    <article class="entry">
-      <div class="when"><b>更多</b>作品</div>
-      <div class="what">
-        <p class="more">分布式任务调度系统 Nimbus Scheduler（Node.js / WebSocket / Vue 3）、GitHub 仓库像素地图 RepoQuest（React / TypeScript）等，详见 <a href="https://haotian14.github.io/Portfolio/">haotian14.github.io/Portfolio</a>。</p>
-      </div>
-    </article>
   </section>
 
   <section>
@@ -369,7 +365,8 @@ footer { margin-top: 22px; padding-top: 12px; border-top: 1px solid var(--line);
   <section>
     <h2><span class="num">05 · Craft</span><span>专业技能<span class="en">Skills</span></span></h2>
     <dl class="skills">
-      <dt>FRONTEND</dt><dd>熟练 <b>Vue 3</b>、<b>TypeScript</b>、JavaScript；熟悉 <b>React</b>、Umi、Vite、Ant Design、TailwindCSS、Zustand、Sass、ECharts、PWA / IndexedDB</dd>
+      <dt>FRONTEND</dt><dd>熟练 <b>Vue 3</b>、<b>TypeScript</b>、JavaScript；熟悉 Nuxt 3、<b>React</b>、Umi、Vite、Ant Design、TailwindCSS、Zustand、Sass、ECharts、PWA / IndexedDB</dd>
+      <dt>AI AGENT</dt><dd>SSE 流式会话、事件游标恢复、多轮交互与任务续跑、历史与实时状态协调、多模态产物与画布联动</dd>
       <dt>GRAPHICS</dt><dd>Canvas2D 与复杂交互：坐标变换、空间索引、视口裁剪、增量渲染；文档模型、增量保存与撤销重做设计</dd>
       <dt>ENGINEERING</dt><dd>Vitest / Playwright 测试与回归、GitHub Actions CI、Sonar；性能基准与 Profiling、埋点体系设计；日常使用 Claude Code / Codex 辅助开发与代码评审</dd>
       <dt>OTHER</dt><dd>Node.js、WebSocket、RESTful API 设计；数据结构与算法</dd>
@@ -386,7 +383,7 @@ footer { margin-top: 22px; padding-top: 12px; border-top: 1px solid var(--line);
     <div class="who">
       <p class="eyebrow">Frontend Engineer · Résumé 2026</p>
       <h1>Hart Luo<em>骆皓天</em></h1>
-      <p class="tagline">Frontend Engineer · UNSW (QS 19) BSc &amp; MIT · Focus: <i>canvas &amp; complex UI state</i></p>
+      <p class="tagline">Frontend Engineer · UNSW (QS 19) BSc &amp; MIT · Focus: <i>AI agents, canvas &amp; complex UI state</i></p>
       <ul class="contacts">
         <li data-k="TEL" data-private="phone"><span></span></li>
         <li data-k="MAIL"><a href="mailto:luohaotian0616@gmail.com">luohaotian0616@gmail.com</a></li>
@@ -401,9 +398,9 @@ footer { margin-top: 22px; padding-top: 12px; border-top: 1px solid var(--line);
     <h2><span class="num">00 · About</span><span>Highlights</span></h2>
     <div class="highlights">
       <ol>
-        <li>Frontend engineer on Hithink RoyalFlush's DreamFace, an overseas AIGC product with <span class="m">300k+</span> DAU; helped take its infinite canvas from zero to launch, owning the document protocol, save pipeline and render-state consistency.</li>
+        <li>Core frontend engineer for DreamFace’s multimodal Agent (<span class="m">100k+ DAU</span>) and infinite canvas (<span class="m">20k DAU</span>), owning stream recovery, interactive task continuation, output consistency and incremental persistence.</li>
         <li>Author of the open-source canvas engine infinite-canvas-core, optimised against benchmarks: <span class="m">48 µs</span> viewport queries over 100,000 nodes, worst-case frame 44 → <span class="m">13.8 ms</span>.</li>
-        <li>BSc in Computer Science and Master of IT from UNSW (GPA 6.03 and 6.12 out of 7); nearly five years studying and interning in Australia; works fluently in English.</li>
+        <li>UNSW Computer Science and IT graduate; nearly five years studying and interning in Australia; fluent working English.</li>
       </ol>
     </div>
   </section>
@@ -415,21 +412,21 @@ footer { margin-top: 22px; padding-top: 12px; border-top: 1px solid var(--line);
       <div class="when"><b>2026.04</b>Present</div>
       <div class="what">
         <h3>Hithink RoyalFlush<span class="pos">Frontend Engineer</span></h3>
-        <p class="sub">DreamFace team · overseas AIGC product, <b>300k+ DAU</b> on iOS, Android and web (talking avatars, image-to-video, motion transfer, voice cloning); I work on the web app, mobile web and admin console</p>
-        <p class="stack"><span>Vue 3</span><span>TypeScript</span><span>Canvas</span><span>Analytics</span></p>
+        <p class="sub">DreamFace · overseas AIGC product with <b>300k+ DAU</b> across iOS, Android and web; own the core Agent and Canvas frontend, with contributions to mobile web and the admin console</p>
+        <p class="stack"><span>Vue 3 / Nuxt 3</span><span>TypeScript</span><span>SSE</span><span>Canvas</span><span>Vitest</span></p>
 
-        <p class="group">Infinite canvas · AIGC creative workspace<small>core developer · zero to launch · 3,000+ DAU</small></p>
+        <p class="group">Multimodal Agent &amp; infinite canvas<small>core developer · Agent 100k+ DAU · Canvas 20k DAU</small></p>
         <ul>
-          <li class="b">Ran a <span class="m">26</span>-point feasibility study of the Woven Canvas engine that informed project approval; built the canvas route, workspace and resizable agent panel from scratch.</li>
-          <li class="b">Designed the protocol layer — <b>CanvasDocument</b> model, incremental command protocol, undo / redo history and backend spec (<span class="m">4</span> design docs) — and moved saving from localStorage to the server.</li>
-          <li class="b">Built the incremental save queue: debounced merging, idempotent retries reusing the request ID, revision-conflict retry, and weighted batching that fixed failed saves on <span class="m">300</span>-node bulk edits.</li>
-          <li class="b">Fixed <span class="m">5</span> root causes of state divergence between renderer and document (ghost nodes, selection snap-back, a render-loop crash on delete, offline freezes, bulk-asset render failures), with regression tests.</li>
-          <li class="b">Implemented zoom steps, viewport anchoring, snapping, marquee selection, resize, mirroring, drag-and-drop upload and Safari fixes; presented the canvas architecture to the team.</li>
+          <li class="b"><b>Recoverable sessions:</b> designed session state and multi-session orchestration shared by desktop, mobile web and Canvas. Modelled running, suspended and terminal states; implemented cursor-based reconnection, history/live reconciliation, ID migration and replay merging for background generation and re-entry recovery.</li>
+          <li class="b"><b>Interactive continuation:</b> built clarification forms, voice selection, credit confirmation and top-up continuation. Reused submission IDs on retries, checked receipts after lost responses and reconciled card state to handle duplicate clicks, uncertain submissions and stale events while resuming the original task.</li>
+          <li class="b"><b>Agent-to-canvas consistency:</b> mapped placeholders, final media and server snapshots by output ID; coordinated local saves with remote reconciliation, filled missing nodes and removed stale placeholders. Scoped delayed callbacks to project sessions to handle duplicate placement and cross-project writes.</li>
+          <li class="b"><b>Document persistence:</b> designed CanvasDocument, incremental commands and undo / redo, replacing localStorage with server persistence. Built debounced merging, idempotent retries, revision-conflict retry and weighted batching, fixing failed saves on <span class="m">300</span>-node bulk edits.</li>
+          <li class="b"><b>Reliability:</b> helped launch the canvas from zero; fixed <span class="m">5</span> classes of renderer/document divergence, including ghost nodes, selection snap-back, delete crashes, offline freezes and bulk-asset failures. Added recovery, continuation and project-isolation regression cases; documented and presented the architecture.</li>
         </ul>
 
         <p class="group">Promotions and analytics</p>
         <ul>
-          <li class="b">Shipped the site-wide top banner and the image / video campaign pop-up end to end (front end and admin console); owned event tracking for core modules, catching missing triggers and conflicting IDs before release.</li>
+          <li class="b">Shipped site-wide banners and media campaign pop-ups across the web app and admin console; owned core event tracking, resolving missing triggers and conflicting IDs before release.</li>
         </ul>
       </div>
     </article>
@@ -505,12 +502,6 @@ footer { margin-top: 22px; padding-top: 12px; border-top: 1px solid var(--line);
       </div>
     </article>
 
-    <article class="entry">
-      <div class="when"><b>More</b>Work</div>
-      <div class="what">
-        <p class="more">Nimbus Scheduler, a distributed task scheduler (Node.js / WebSocket / Vue 3); RepoQuest, a pixel-map explorer for GitHub repositories (React / TypeScript); and more at <a href="https://haotian14.github.io/Portfolio/">haotian14.github.io/Portfolio</a>.</p>
-      </div>
-    </article>
   </section>
 
   <section>
@@ -528,9 +519,10 @@ footer { margin-top: 22px; padding-top: 12px; border-top: 1px solid var(--line);
   <section>
     <h2><span class="num">05 · Craft</span><span>Skills</span></h2>
     <dl class="skills">
-      <dt>FRONTEND</dt><dd>Proficient in <b>Vue 3</b>, <b>TypeScript</b> and JavaScript; experienced with <b>React</b>, Umi, Vite, Ant Design, TailwindCSS, Zustand, Sass, ECharts, PWA / IndexedDB</dd>
+      <dt>FRONTEND</dt><dd>Proficient in <b>Vue 3</b>, <b>TypeScript</b> and JavaScript; Nuxt 3, <b>React</b>, Umi, Vite, Ant Design, TailwindCSS, Zustand, Sass, ECharts, PWA / IndexedDB</dd>
+      <dt>AI AGENT</dt><dd>SSE sessions, cursor-based recovery, interactive task continuation, history/live reconciliation, multimodal output integration with canvas</dd>
       <dt>GRAPHICS</dt><dd>Canvas2D and complex interaction: coordinate transforms, spatial indexing, viewport culling, incremental rendering; document models, incremental saving and undo / redo design</dd>
-      <dt>ENGINEERING</dt><dd>Vitest / Playwright testing and regression suites, GitHub Actions CI, Sonar; benchmarking and profiling, analytics design; Claude Code / Codex for day-to-day development and code review</dd>
+      <dt>ENGINEERING</dt><dd>Vitest / Playwright, GitHub Actions CI, Sonar; benchmarking, profiling and analytics; Claude Code / Codex for development and review</dd>
       <dt>OTHER</dt><dd>Node.js, WebSocket, RESTful API design; data structures and algorithms</dd>
       <dt>LANGUAGE</dt><dd>Mandarin (native), English (professional working proficiency)</dd>
     </dl>
