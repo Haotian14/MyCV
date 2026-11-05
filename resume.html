@@ -261,18 +261,17 @@ footer { margin-top: 22px; padding-top: 12px; border-top: 1px solid var(--line);
         <p class="sub">DreamFace 项目组 · 同花顺 AIGC 出海产品，<b>全端日活 30 万+</b>，覆盖 iOS / Android / Web，提供数字人口播、图生视频、动作迁移与声音克隆等能力；本人负责 Agent 与 Canvas 核心前端，参与 Web、H5 与管理后台开发</p>
         <p class="stack"><span>Vue 3 / Nuxt 3</span><span>TypeScript</span><span>SSE</span><span>Canvas</span><span>Vitest</span></p>
 
-        <p class="group">多模态 Agent 与无限画布<small>核心开发 · Agent 日活 10 万+ · Canvas 日活 2 万</small></p>
+        <p class="group">多模态 Agent<small>核心开发 · 日活 10 万+</small></p>
         <ul>
           <li class="b"><b>可恢复的流式会话</b>：设计单会话状态与多会话管理分层，复用至 PC、H5 与 Canvas；区分连接关闭、任务挂起与执行终态，基于事件游标续连，处理历史快照与实时消息竞态、ID 迁移及重放合并，支持后台生成与重进恢复。</li>
-          <li class="b"><b>交互式任务续跑</b>：实现问题澄清、音色选择、费用确认及充值后继续，串联任务挂起、用户提交与原任务续跑；通过重试复用提交标识、丢失回执补查和卡片状态合并，处理重复点击、提交结果不确定及旧事件导致的状态回退。</li>
-          <li class="b"><b>Agent 与画布一致性</b>：以输出 ID 关联生成占位、最终媒体与服务端快照，协调本地保存与远端产物对账，补齐缺失节点、清理残留占位；通过项目会话标识隔离延迟回调，处理重复落图与跨项目写入问题。</li>
-          <li class="b"><b>文档协议与增量保存</b>：设计 CanvasDocument、增量 Command 与 Undo / Redo 方案，推动画布从本地存储接入服务端持久化；实现防抖合并、幂等重试、revision 冲突重试及加权切批，解决 <span class="m">300</span> 节点批量操作超出单请求上限的保存失败。</li>
-          <li class="b"><b>稳定性与工程交付</b>：参与无限画布从 0 到上线，修复文档与渲染引擎间 <span class="m">5</span> 类状态一致性问题，覆盖幽灵节点、选中态回弹、删除崩溃、断网冻结及批量资产渲染失败；补充会话恢复、交互续跑与项目隔离回归用例，编写架构文档并开展团队分享。</li>
+          <li class="b"><b>交互式任务续跑</b>：实现问题澄清、音色选择、费用确认及充值后继续，串联任务挂起、用户提交与原任务续跑；通过重试复用提交标识、丢失回执补查和卡片状态合并，处理重复点击、提交结果不确定及旧事件导致的状态回退；补充会话恢复与交互续跑回归用例。</li>
         </ul>
 
-        <p class="group">运营位与数据埋点</p>
+        <p class="group">无限画布<small>核心开发 · 日活 2 万</small></p>
         <ul>
-          <li class="b">负责顶部通栏 Banner（推广至全部 PC 业务页）与首页图片 / 视频轮播活动弹窗的前台 + 管理后台全链路；负责首页、画布等核心模块埋点，提前识别触发时机缺失、ID 冲突等需求缺陷并推动统一口径。</li>
+          <li class="b"><b>Agent 与画布一致性</b>：以输出 ID 关联生成占位、最终媒体与服务端快照，协调本地保存与远端产物对账，补齐缺失节点、清理残留占位；通过项目会话标识隔离延迟回调，处理重复落图与跨项目写入问题。</li>
+          <li class="b"><b>文档协议与增量保存</b>：设计 CanvasDocument、增量 Command 与 Undo / Redo 方案，推动画布从本地存储接入服务端持久化；实现防抖合并、幂等重试、revision 冲突重试及加权切批，解决 <span class="m">300</span> 节点批量操作超出单请求上限的保存失败。</li>
+          <li class="b"><b>稳定性与工程交付</b>：参与无限画布从 0 到上线，修复文档与渲染引擎间 <span class="m">5</span> 类状态一致性问题，覆盖幽灵节点、选中态回弹、删除崩溃、断网冻结及批量资产渲染失败；补充项目隔离回归用例，编写架构文档并开展团队分享。</li>
         </ul>
       </div>
     </article>
@@ -415,18 +414,17 @@ footer { margin-top: 22px; padding-top: 12px; border-top: 1px solid var(--line);
         <p class="sub">DreamFace · overseas AIGC product with <b>300k+ DAU</b> across iOS, Android and web; own the core Agent and Canvas frontend, with contributions to mobile web and the admin console</p>
         <p class="stack"><span>Vue 3 / Nuxt 3</span><span>TypeScript</span><span>SSE</span><span>Canvas</span><span>Vitest</span></p>
 
-        <p class="group">Multimodal Agent &amp; infinite canvas<small>core developer · Agent 100k+ DAU · Canvas 20k DAU</small></p>
+        <p class="group">Multimodal Agent<small>core developer · 100k+ DAU</small></p>
         <ul>
           <li class="b"><b>Recoverable sessions:</b> designed session state and multi-session orchestration shared by desktop, mobile web and Canvas. Modelled running, suspended and terminal states; implemented cursor-based reconnection, history/live reconciliation, ID migration and replay merging for background generation and re-entry recovery.</li>
-          <li class="b"><b>Interactive continuation:</b> built clarification forms, voice selection, credit confirmation and top-up continuation. Reused submission IDs on retries, checked receipts after lost responses and reconciled card state to handle duplicate clicks, uncertain submissions and stale events while resuming the original task.</li>
-          <li class="b"><b>Agent-to-canvas consistency:</b> mapped placeholders, final media and server snapshots by output ID; coordinated local saves with remote reconciliation, filled missing nodes and removed stale placeholders. Scoped delayed callbacks to project sessions to handle duplicate placement and cross-project writes.</li>
-          <li class="b"><b>Document persistence:</b> designed CanvasDocument, incremental commands and undo / redo, replacing localStorage with server persistence. Built debounced merging, idempotent retries, revision-conflict retry and weighted batching, fixing failed saves on <span class="m">300</span>-node bulk edits.</li>
-          <li class="b"><b>Reliability:</b> helped launch the canvas from zero; fixed <span class="m">5</span> classes of renderer/document divergence, including ghost nodes, selection snap-back, delete crashes, offline freezes and bulk-asset failures. Added recovery, continuation and project-isolation regression cases; documented and presented the architecture.</li>
+          <li class="b"><b>Interactive continuation:</b> built clarification forms, voice selection, credit confirmation and top-up continuation. Reused submission IDs on retries, checked receipts after lost responses and reconciled card state to handle duplicate clicks, uncertain submissions and stale events while resuming the original task. Added session-recovery and interactive-continuation regression cases.</li>
         </ul>
 
-        <p class="group">Promotions and analytics</p>
+        <p class="group">Infinite canvas<small>core developer · 20k DAU</small></p>
         <ul>
-          <li class="b">Shipped site-wide banners and media campaign pop-ups across the web app and admin console; owned core event tracking, resolving missing triggers and conflicting IDs before release.</li>
+          <li class="b"><b>Agent-to-canvas consistency:</b> mapped placeholders, final media and server snapshots by output ID; coordinated local saves with remote reconciliation, filled missing nodes and removed stale placeholders. Scoped delayed callbacks to project sessions to handle duplicate placement and cross-project writes.</li>
+          <li class="b"><b>Document persistence:</b> designed CanvasDocument, incremental commands and undo / redo, replacing localStorage with server persistence. Built debounced merging, idempotent retries, revision-conflict retry and weighted batching, fixing failed saves on <span class="m">300</span>-node bulk edits.</li>
+          <li class="b"><b>Reliability:</b> helped launch the canvas from zero; fixed <span class="m">5</span> classes of renderer/document divergence, including ghost nodes, selection snap-back, delete crashes, offline freezes and bulk-asset failures. Added project-isolation regression cases; documented and presented the architecture.</li>
         </ul>
       </div>
     </article>
