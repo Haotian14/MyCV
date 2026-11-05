@@ -244,7 +244,7 @@ footer { margin-top: 22px; padding-top: 12px; border-top: 1px solid var(--line);
     <h2><span class="num">00 · About</span><span>个人优势<span class="en">Highlights</span></span></h2>
     <div class="highlights">
       <ol>
-        <li>同花顺 DreamFace 核心前端，负责日活 <span class="m">10 万+</span> 的多模态 Agent 与日活 <span class="m">2 万</span> 的无限画布建设，涵盖流式会话恢复、交互式任务续跑、产物一致性与增量持久化。</li>
+        <li>同花顺 DreamFace 核心前端，负责日活 <span class="m">10 万+</span> 的多模态 Agent 与日活 <span class="m">2 万</span> 的无限画布，聚焦 PC / H5 / Canvas 会话复用、流式恢复、产物一致性与增量持久化。</li>
         <li>业余开源画布引擎 infinite-canvas-core，以基准测试驱动优化：10 万节点视口查询 <span class="m">48 µs</span>，最坏帧 44 → <span class="m">13.8 ms</span>。</li>
         <li>UNSW 计算机本科 + 信息技术硕士（GPA 6.03 / 6.12，满分 7），近 5 年澳洲学习与实习经历，英语可作为工作语言。</li>
       </ol>
@@ -258,20 +258,24 @@ footer { margin-top: 22px; padding-top: 12px; border-top: 1px solid var(--line);
       <div class="when"><b>2026.04</b>至今</div>
       <div class="what">
         <h3>同花顺<span class="pos">前端开发工程师</span></h3>
-        <p class="sub">DreamFace 项目组 · 同花顺 AIGC 出海产品，<b>全端日活 30 万+</b>，覆盖 iOS / Android / Web，提供数字人口播、图生视频、动作迁移与声音克隆等能力；本人负责 Agent 与 Canvas 核心前端，参与 Web、H5 与管理后台开发</p>
+        <p class="sub">DreamFace 项目组 · 同花顺 AIGC 出海产品，<b>全端日活 30 万+</b>，覆盖 iOS / Android / Web，提供数字人口播、图生视频、动作迁移与声音克隆等能力；本人负责 Agent 与 Canvas 核心前端，参与 H5 首页重构、性能优化与管理后台开发</p>
         <p class="stack"><span>Vue 3 / Nuxt 3</span><span>TypeScript</span><span>SSE</span><span>Canvas</span><span>Vitest</span></p>
 
         <p class="group">多模态 Agent<small>核心开发 · 日活 10 万+</small></p>
         <ul>
-          <li class="b"><b>可恢复的流式会话</b>：设计单会话状态与多会话管理分层，复用至 PC、H5 与 Canvas；区分连接关闭、任务挂起与执行终态，基于事件游标续连，处理历史快照与实时消息竞态、ID 迁移及重放合并，支持后台生成与重进恢复。</li>
-          <li class="b"><b>交互式任务续跑</b>：实现问题澄清、音色选择、费用确认及充值后继续，串联任务挂起、用户提交与原任务续跑；通过重试复用提交标识、丢失回执补查和卡片状态合并，处理重复点击、提交结果不确定及旧事件导致的状态回退；补充会话恢复与交互续跑回归用例。</li>
+          <li class="b"><b>跨端流式会话</b>：将单会话状态与多会话调度分层，供 PC、H5 与 Canvas 复用；以事件游标续连、历史 / 实时消息合并和会话 ID 迁移处理断线与重进，区分连接结束、任务挂起与执行终态，避免流关闭后误判生成完成。</li>
+          <li class="b"><b>交互式任务续跑</b>：实现需求澄清、音色选择、费用确认与充值后继续；重试复用提交标识，回执丢失时补查受理结果，合并历史与实时卡片状态，处理重复点击、提交结果不确定与旧事件回退；补充恢复与续跑回归用例。</li>
         </ul>
 
         <p class="group">无限画布<small>核心开发 · 日活 2 万</small></p>
         <ul>
-          <li class="b"><b>Agent 与画布一致性</b>：以输出 ID 关联生成占位、最终媒体与服务端快照，协调本地保存与远端产物对账，补齐缺失节点、清理残留占位；通过项目会话标识隔离延迟回调，处理重复落图与跨项目写入问题。</li>
-          <li class="b"><b>文档协议与增量保存</b>：设计 CanvasDocument、增量 Command 与 Undo / Redo 方案，推动画布从本地存储接入服务端持久化；实现防抖合并、幂等重试、revision 冲突重试及加权切批，解决 <span class="m">300</span> 节点批量操作超出单请求上限的保存失败。</li>
-          <li class="b"><b>稳定性与工程交付</b>：参与无限画布从 0 到上线，修复文档与渲染引擎间 <span class="m">5</span> 类状态一致性问题，覆盖幽灵节点、选中态回弹、删除崩溃、断网冻结及批量资产渲染失败；补充项目隔离回归用例，编写架构文档并开展团队分享。</li>
+          <li class="b"><b>生成产物一致性</b>：以输出 ID 对齐占位、媒体与远端快照，先协调本地保存再对账，补缺失节点、清残留占位；区分 UI 行 ID 与服务端消息 ID，修复选音续跑后占位保存被拒，并以项目会话标识隔离迟到回调。</li>
+          <li class="b"><b>文档模型与可靠保存</b>：分离持久化文档与选区 / 视口状态，以 Command 统一编辑、撤销重做与增量保存；通过防抖合并、固定批次幂等重试、revision 冲突处理与加权切批，解决 <span class="m">300</span> 节点批量操作超限，保存与渲染独立调度。</li>
+          <li class="b"><b>稳定性与交付</b>：参与画布从 0 到上线，修复幽灵节点、选中态回弹、删除崩溃、断网冻结及批量资产失败 <span class="m">5</span> 类问题；补充项目隔离回归用例，编写架构文档并开展团队分享。</li>
+        </ul>
+        <p class="group">H5 工程优化<small>跨端复用 · 首屏资源</small></p>
+        <ul>
+          <li class="b">拆分移动首页与桌面业务依赖，PC 模块按需加载；将四张首屏 PNG 转为 WebP 并补充资源预加载，图片总体积减少 <span class="m">92.5%</span>；复用 PC / H5 的 Skill 与模型选择逻辑，保留移动端弹层与草稿语义。</li>
         </ul>
       </div>
     </article>
@@ -365,15 +369,15 @@ footer { margin-top: 22px; padding-top: 12px; border-top: 1px solid var(--line);
     <h2><span class="num">05 · Craft</span><span>专业技能<span class="en">Skills</span></span></h2>
     <dl class="skills">
       <dt>FRONTEND</dt><dd>熟练 <b>Vue 3</b>、<b>TypeScript</b>、JavaScript；熟悉 Nuxt 3、<b>React</b>、Umi、Vite、Ant Design、TailwindCSS、Zustand、Sass、ECharts、PWA / IndexedDB</dd>
-      <dt>AI AGENT</dt><dd>SSE 流式会话、事件游标恢复、多轮交互与任务续跑、历史与实时状态协调、多模态产物与画布联动</dd>
-      <dt>GRAPHICS</dt><dd>Canvas2D 与复杂交互：坐标变换、空间索引、视口裁剪、增量渲染；文档模型、增量保存与撤销重做设计</dd>
+      <dt>AI AGENT</dt><dd>跨 PC / H5 / Canvas 会话分层、SSE 游标恢复、交互续跑与提交去重、历史 / 实时状态合并、生成产物对账</dd>
+      <dt>GRAPHICS</dt><dd>Canvas2D 与复杂交互：坐标变换、空间索引、视口裁剪、增量渲染；文档 / 编辑器状态分离、Command 与撤销重做、幂等增量保存</dd>
       <dt>ENGINEERING</dt><dd>Vitest / Playwright 测试与回归、GitHub Actions CI、Sonar；性能基准与 Profiling、埋点体系设计；日常使用 Claude Code / Codex 辅助开发与代码评审</dd>
       <dt>OTHER</dt><dd>Node.js、WebSocket、RESTful API 设计；数据结构与算法</dd>
       <dt>LANGUAGE</dt><dd>中文（母语）、英语（工作语言）</dd>
     </dl>
   </section>
 
-  <footer><span>HART LUO · 骆皓天</span><span>UPDATED 2026.10</span></footer>
+  <footer><span>HART LUO · 骆皓天</span><span>UPDATED 2026.11</span></footer>
 </main>
 
 <main class="page" data-lang="en" lang="en">
@@ -397,7 +401,7 @@ footer { margin-top: 22px; padding-top: 12px; border-top: 1px solid var(--line);
     <h2><span class="num">00 · About</span><span>Highlights</span></h2>
     <div class="highlights">
       <ol>
-        <li>Core frontend engineer for DreamFace’s multimodal Agent (<span class="m">100k+ DAU</span>) and infinite canvas (<span class="m">20k DAU</span>), owning stream recovery, interactive task continuation, output consistency and incremental persistence.</li>
+        <li>Core frontend engineer for DreamFace’s Agent (<span class="m">100k+ DAU</span>) and canvas (<span class="m">20k DAU</span>), focused on shared desktop / mobile sessions, stream recovery, output consistency and incremental persistence.</li>
         <li>Author of the open-source canvas engine infinite-canvas-core, optimised against benchmarks: <span class="m">48 µs</span> viewport queries over 100,000 nodes, worst-case frame 44 → <span class="m">13.8 ms</span>.</li>
         <li>UNSW Computer Science and IT graduate; nearly five years studying and interning in Australia; fluent working English.</li>
       </ol>
@@ -411,20 +415,24 @@ footer { margin-top: 22px; padding-top: 12px; border-top: 1px solid var(--line);
       <div class="when"><b>2026.04</b>Present</div>
       <div class="what">
         <h3>Hithink RoyalFlush<span class="pos">Frontend Engineer</span></h3>
-        <p class="sub">DreamFace · overseas AIGC product with <b>300k+ DAU</b> across iOS, Android and web; own the core Agent and Canvas frontend, with contributions to mobile web and the admin console</p>
+        <p class="sub">DreamFace · overseas AIGC product with <b>300k+ DAU</b> across iOS, Android and web; own the core Agent and Canvas frontend; contribute to mobile-home restructuring, performance optimisation and the admin console</p>
         <p class="stack"><span>Vue 3 / Nuxt 3</span><span>TypeScript</span><span>SSE</span><span>Canvas</span><span>Vitest</span></p>
 
         <p class="group">Multimodal Agent<small>core developer · 100k+ DAU</small></p>
         <ul>
-          <li class="b"><b>Recoverable sessions:</b> designed session state and multi-session orchestration shared by desktop, mobile web and Canvas. Modelled running, suspended and terminal states; implemented cursor-based reconnection, history/live reconciliation, ID migration and replay merging for background generation and re-entry recovery.</li>
-          <li class="b"><b>Interactive continuation:</b> built clarification forms, voice selection, credit confirmation and top-up continuation. Reused submission IDs on retries, checked receipts after lost responses and reconciled card state to handle duplicate clicks, uncertain submissions and stale events while resuming the original task. Added session-recovery and interactive-continuation regression cases.</li>
+          <li class="b"><b>Cross-platform sessions:</b> separated per-session state from multi-session orchestration for desktop, mobile web and Canvas. Combined cursor-based reconnection, history/live merging and session ID migration for disconnects and re-entry; distinguished stream closure, suspension and task completion to avoid premature completion states.</li>
+          <li class="b"><b>Interactive continuation:</b> built clarification, voice selection, credit confirmation and top-up continuation. Reused submission IDs on retries, checked receipts after lost responses and reconciled history/live cards to handle duplicate clicks, uncertain submissions and stale events; added recovery and continuation regression cases.</li>
         </ul>
 
         <p class="group">Infinite canvas<small>core developer · 20k DAU</small></p>
         <ul>
-          <li class="b"><b>Agent-to-canvas consistency:</b> mapped placeholders, final media and server snapshots by output ID; coordinated local saves with remote reconciliation, filled missing nodes and removed stale placeholders. Scoped delayed callbacks to project sessions to handle duplicate placement and cross-project writes.</li>
-          <li class="b"><b>Document persistence:</b> designed CanvasDocument, incremental commands and undo / redo, replacing localStorage with server persistence. Built debounced merging, idempotent retries, revision-conflict retry and weighted batching, fixing failed saves on <span class="m">300</span>-node bulk edits.</li>
-          <li class="b"><b>Reliability:</b> helped launch the canvas from zero; fixed <span class="m">5</span> classes of renderer/document divergence, including ghost nodes, selection snap-back, delete crashes, offline freezes and bulk-asset failures. Added project-isolation regression cases; documented and presented the architecture.</li>
+          <li class="b"><b>Output consistency:</b> reconciled placeholders, media and remote snapshots by output ID after coordinating local saves. Separated UI row IDs from server message IDs to fix rejected placeholder saves after voice selection; scoped late callbacks to project sessions.</li>
+          <li class="b"><b>Document model and persistence:</b> separated persistent content from selection / viewport state; unified edits, undo / redo and saving through commands. Combined debouncing, immutable retry batches, idempotency, revision-conflict handling and weighted batching to fix <span class="m">300</span>-node save failures; scheduled saving and rendering independently.</li>
+          <li class="b"><b>Reliability:</b> helped launch the canvas from zero; fixed <span class="m">5</span> classes of issues: ghost nodes, selection snap-back, delete crashes, offline freezes and bulk-asset failures. Added project-isolation regression cases; documented and presented the architecture.</li>
+        </ul>
+        <p class="group">Mobile web engineering<small>shared logic · resource loading</small></p>
+        <ul>
+          <li class="b">Separated mobile-home dependencies from desktop modules and loaded the desktop branch on demand. Converted four initial-page PNGs to WebP and added preloading, cutting their combined size by <span class="m">92.5%</span>. Shared Skill / model selection logic across desktop and mobile while retaining mobile sheets and draft behaviour.</li>
         </ul>
       </div>
     </article>
@@ -518,15 +526,15 @@ footer { margin-top: 22px; padding-top: 12px; border-top: 1px solid var(--line);
     <h2><span class="num">05 · Craft</span><span>Skills</span></h2>
     <dl class="skills">
       <dt>FRONTEND</dt><dd>Proficient in <b>Vue 3</b>, <b>TypeScript</b> and JavaScript; Nuxt 3, <b>React</b>, Umi, Vite, Ant Design, TailwindCSS, Zustand, Sass, ECharts, PWA / IndexedDB</dd>
-      <dt>AI AGENT</dt><dd>SSE sessions, cursor-based recovery, interactive task continuation, history/live reconciliation, multimodal output integration with canvas</dd>
-      <dt>GRAPHICS</dt><dd>Canvas2D and complex interaction: coordinate transforms, spatial indexing, viewport culling, incremental rendering; document models, incremental saving and undo / redo design</dd>
+      <dt>AI AGENT</dt><dd>Shared desktop / mobile / canvas sessions, SSE cursor recovery, interactive continuation and submission deduplication, history/live merging, output reconciliation</dd>
+      <dt>GRAPHICS</dt><dd>Canvas2D and complex interaction: coordinate transforms, spatial indexing, viewport culling, incremental rendering; document / editor-state separation, commands and undo / redo, idempotent incremental saving</dd>
       <dt>ENGINEERING</dt><dd>Vitest / Playwright, GitHub Actions CI, Sonar; benchmarking, profiling and analytics; Claude Code / Codex for development and review</dd>
       <dt>OTHER</dt><dd>Node.js, WebSocket, RESTful API design; data structures and algorithms</dd>
       <dt>LANGUAGE</dt><dd>Mandarin (native), English (professional working proficiency)</dd>
     </dl>
   </section>
 
-  <footer><span>HART LUO · 骆皓天</span><span>UPDATED 2026.10</span></footer>
+  <footer><span>HART LUO · 骆皓天</span><span>UPDATED 2026.11</span></footer>
 </main>
 
 <script>
