@@ -244,7 +244,7 @@ footer { margin-top: 22px; padding-top: 12px; border-top: 1px solid var(--line);
     <h2><span class="num">00 · About</span><span>个人优势<span class="en">Highlights</span></span></h2>
     <div class="highlights">
       <ol>
-        <li>同花顺 DreamFace 前端开发，负责 Agent 与 Canvas 的会话、交互及产物联动，参与画布从 0 到上线，覆盖断线恢复、任务续跑与服务端增量保存。</li>
+        <li>同花顺 DreamFace 前端开发，负责 Agent / Canvas 核心功能，参与画布从 0 到上线；具备 PC / H5 与 iOS / Android App 内嵌 H5 开发经验，覆盖任务恢复、增量保存与原生能力协作。</li>
         <li>业余独立开发开源画布引擎 infinite-canvas-core，将空间索引、相机交互与撤销历史封装为无头引擎，用可复现基准定位并修复性能回归。</li>
         <li>UNSW 计算机本科 + 信息技术硕士，近 5 年澳洲学习与实习经历，英语可作为工作语言。</li>
       </ol>
@@ -257,8 +257,8 @@ footer { margin-top: 22px; padding-top: 12px; border-top: 1px solid var(--line);
       <div class="when"><b>2026.04</b>至今</div>
       <div class="what">
         <h3>同花顺<span class="pos">前端开发工程师</span></h3>
-        <p class="sub">DreamFace · 覆盖 iOS / Android / Web 的 AIGC 出海产品，全端日活 <b>30 万+</b>；负责 Agent / Canvas 核心前端功能，参与 H5 首页重构与性能优化</p>
-        <p class="stack"><span>Vue 3 / Nuxt 3</span><span>TypeScript</span><span>SSE</span><span>Canvas</span><span>Vitest</span></p>
+        <p class="sub">DreamFace · 覆盖 iOS / Android / Web 的 AIGC 出海产品，全端日活 <b>30 万+</b>；负责 Agent / Canvas 核心前端功能，参与 App 内嵌 H5 开发与客户端能力接入</p>
+        <p class="stack"><span>Vue 2.7 / Vue 3</span><span>Nuxt 3 / TypeScript</span><span>SSE</span><span>Canvas</span><span>JSBridge</span></p>
 
         <p class="group">多模态 Agent<small>跨端会话 · 任务恢复</small></p>
         <ul>
@@ -271,7 +271,11 @@ footer { margin-top: 22px; padding-top: 12px; border-top: 1px solid var(--line);
           <li class="b"><b>从本地存储到服务端增量保存</b>：参与持久化迁移，分离文档与选区 / 视口状态，以 Command 统一编辑和撤销重做；结合防抖合并、幂等批次、版本冲突处理及按后端操作量切批，解决 <span class="m">300</span> 节点批量操作无法保存的问题，保存与渲染独立调度。</li>
           <li class="b"><b>生成结果落图与项目隔离</b>：统一占位、最终媒体与服务端快照的关联，协调本地保存与产物对账，补齐缺失节点并清理残留占位；修复选音续跑后的产物关联与保存失败，以项目会话标识隔离迟到回调，防止结果写入其他项目；补充项目隔离回归，编写架构文档并开展分享。</li>
         </ul>
-        <p class="more"><b>H5 优化：</b>拆分移动首页与桌面依赖，按需加载桌面模块；将四张首屏图片由约 1.03 MB 压缩至 77 KB（减少 <span class="m">92.5%</span>），并补充预加载。</p>
+        <p class="group">App Hybrid<small>iOS / Android · JSBridge</small></p>
+        <ul>
+          <li class="b"><b>内嵌 H5 与原生能力协作</b>：封装 JSBridge 调用以接入系统浏览器唤起能力，实现 iOS Web 充值引导与结账外跳，处理与 Android 原生购买路径的差异。</li>
+          <li class="b"><b>原生媒体链路可靠性</b>：处理视频首帧下载与原生人脸检测协作，复用缓存避免重复调用卡死；首帧无脸或无法本地检测时交由后端兜底，避免有效视频被错误阻断。</li>
+        </ul>
       </div>
     </article>
   </section>
@@ -360,8 +364,9 @@ footer { margin-top: 22px; padding-top: 12px; border-top: 1px solid var(--line);
   <section>
     <h2><span class="num">05 · Craft</span><span>专业技能<span class="en">Skills</span></span></h2>
     <dl class="skills">
-      <dt>FRONTEND</dt><dd>熟练 <b>Vue 3</b>、<b>TypeScript</b>、JavaScript；熟悉 Nuxt 3、<b>React</b>、Vite、TailwindCSS，具备 PC / H5 跨端开发经验</dd>
+      <dt>FRONTEND</dt><dd>熟练 <b>Vue 3</b>、<b>TypeScript</b>、JavaScript；使用 Vue 2.7、Nuxt 3、<b>React</b>、Vite、TailwindCSS</dd>
       <dt>AI / CANVAS</dt><dd>SSE 流式交互、会话与任务恢复；Canvas2D、坐标变换、空间索引、视口裁剪、文档模型与撤销重做</dd>
+      <dt>HYBRID</dt><dd>iOS / Android App WebView、JSBridge 通信与客户端能力接入、平台差异处理；PC / H5 开发</dd>
       <dt>ENGINEERING</dt><dd>Vitest / Playwright、契约与回归测试、GitHub Actions；性能基准与 Profiling、接口联调；PWA / IndexedDB</dd>
       <dt>LANGUAGE</dt><dd>中文（母语）、英语（工作语言）</dd>
     </dl>
@@ -391,7 +396,7 @@ footer { margin-top: 22px; padding-top: 12px; border-top: 1px solid var(--line);
     <h2><span class="num">00 · About</span><span>Highlights</span></h2>
     <div class="highlights">
       <ol>
-        <li>DreamFace frontend engineer responsible for Agent / Canvas sessions, interaction and output integration; helped launch the canvas, covering disconnect recovery, task continuation and server-backed incremental saving.</li>
+        <li>DreamFace frontend engineer responsible for core Agent / Canvas features; helped launch the canvas. Experience spans desktop, mobile web and H5 embedded in iOS / Android apps, covering task recovery, incremental saving and native integration.</li>
         <li>Built infinite-canvas-core independently: an open-source headless engine for spatial indexing, camera interaction and patch-based history, with reproducible benchmarks to diagnose performance regressions.</li>
         <li>UNSW Computer Science and IT graduate; nearly five years studying and interning in Australia; professional working English.</li>
       </ol>
@@ -404,8 +409,8 @@ footer { margin-top: 22px; padding-top: 12px; border-top: 1px solid var(--line);
       <div class="when"><b>2026.04</b>Present</div>
       <div class="what">
         <h3>Hithink RoyalFlush<span class="pos">Frontend Engineer</span></h3>
-        <p class="sub">DreamFace · AIGC product with <b>300k+ DAU</b> across iOS, Android and web; responsible for core Agent / Canvas frontend features, with contributions to mobile-home restructuring and performance optimisation</p>
-        <p class="stack"><span>Vue 3 / Nuxt 3</span><span>TypeScript</span><span>SSE</span><span>Canvas</span><span>Vitest</span></p>
+        <p class="sub">DreamFace · AIGC product with <b>300k+ DAU</b> across iOS, Android and web; responsible for core Agent / Canvas frontend features, with contributions to embedded H5 features and native capability integration</p>
+        <p class="stack"><span>Vue 2.7 / Vue 3</span><span>Nuxt 3 / TypeScript</span><span>SSE</span><span>Canvas</span><span>JSBridge</span></p>
 
         <p class="group">Multimodal Agent<small>shared sessions · task recovery</small></p>
         <ul>
@@ -418,7 +423,11 @@ footer { margin-top: 22px; padding-top: 12px; border-top: 1px solid var(--line);
           <li class="b"><b>From local storage to server persistence:</b> contributed to the migration to incremental saving; separated document content from selection / viewport state and unified edits and undo / redo through commands. Combined debouncing, idempotent batches, revision-conflict handling and batching by backend operation count to fix failed <span class="m">300</span>-node saves; scheduled saving and rendering independently.</li>
           <li class="b"><b>Output placement and project isolation:</b> linked placeholders, final media and server snapshots, coordinating local saves with reconciliation to fill missing nodes and remove stale placeholders. Fixed output association and save failures after voice selection; scoped late callbacks to project sessions to prevent cross-project writes. Added isolation regression cases; documented and presented the architecture.</li>
         </ul>
-        <p class="more"><b>Mobile web:</b> separated mobile-home and desktop dependencies, loading desktop modules on demand; compressed four initial-page images from about 1.03 MB to 77 KB (<span class="m">92.5%</span> smaller) and added preloading.</p>
+        <p class="group">App Hybrid<small>iOS / Android · JSBridge</small></p>
+        <ul>
+          <li class="b"><b>Embedded H5 and native integration:</b> added a JSBridge wrapper to open the system browser, enabling iOS web top-up guidance and external checkout while handling the separate Android native-purchase flow.</li>
+          <li class="b"><b>Native media reliability:</b> coordinated video first-frame downloads with native face detection. Reused cached results to avoid hangs on repeated calls; deferred to the backend when the first frame had no face or local detection was unavailable, avoiding rejection of valid videos.</li>
+        </ul>
       </div>
     </article>
   </section>
@@ -507,8 +516,9 @@ footer { margin-top: 22px; padding-top: 12px; border-top: 1px solid var(--line);
   <section>
     <h2><span class="num">05 · Craft</span><span>Skills</span></h2>
     <dl class="skills">
-      <dt>FRONTEND</dt><dd>Proficient in <b>Vue 3</b>, <b>TypeScript</b> and JavaScript; Nuxt 3, <b>React</b>, Vite and TailwindCSS; desktop / mobile web development</dd>
+      <dt>FRONTEND</dt><dd>Proficient in <b>Vue 3</b>, <b>TypeScript</b> and JavaScript; experience with Vue 2.7, Nuxt 3, <b>React</b>, Vite and TailwindCSS</dd>
       <dt>AI / CANVAS</dt><dd>SSE interaction, session and task recovery; Canvas2D, coordinate transforms, spatial indexing, viewport culling, document models and undo / redo</dd>
+      <dt>HYBRID</dt><dd>iOS / Android app WebViews, JSBridge communication, native capability integration and platform differences; desktop / mobile web</dd>
       <dt>ENGINEERING</dt><dd>Vitest / Playwright, contract and regression testing, GitHub Actions; benchmarking, profiling and API integration; PWA / IndexedDB</dd>
       <dt>LANGUAGE</dt><dd>Mandarin (native), English (professional working proficiency)</dd>
     </dl>
