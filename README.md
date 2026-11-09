@@ -9,6 +9,10 @@
 
 在线版：<https://haotian14.github.io/MyCV/>
 
+## 即梦前端学习记录
+
+学习路线、Lynx 入门和面试进度放在 [`learning/`](learning/README.md)，当前状态见 [`learning/progress.md`](learning/progress.md)。记录区分已有项目经历、独立回答、提示后完成和实际验证，方便跨会话接着学习。
+
 ## 生成 PDF
 
 需要 Node.js 和 `playwright`，并安装 Noto Sans SC 字体：
